@@ -46,7 +46,7 @@ if (isset($_POST['submit'])) {
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="age" class="form__input" placeholder="age" required>
+                <input id="login__username" type="text" name="age" class="form__input" placeholder="Age" required>
             </div>
 
             <div class="form__field">

@@ -39,7 +39,7 @@ if(isset($_POST['but_submit'])){
     <link rel="stylesheet" href="footer.css">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
-    <title>Tutotio | Login</title>
+    <title>Tutorio | Login</title>
 </head>
 
 <body class="align">
@@ -70,7 +70,7 @@ if(isset($_POST['but_submit'])){
             </div>
 
         </form>
-        <p class="text--center">Not a member? <a href="signup.html">Sign up now</a> <svg class="icon">
+        <p class="text--center">Not a member? <a href="signup.php">Sign up now</a> <svg class="icon">
                 <use xlink:href="#icon-arrow-right"></use>
             </svg></p>
 
