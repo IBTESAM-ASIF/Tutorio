@@ -39,7 +39,7 @@ if(isset($_POST['but_submit'])){
     <link rel="stylesheet" href="footer.css">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
-    <title>Tutotio | Login</title>
+    <title>Tutorio | Login</title>
 </head>
 
 <body class="align">
