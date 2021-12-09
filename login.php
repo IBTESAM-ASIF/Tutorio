@@ -1,6 +1,5 @@
 <?php
 
-
 include 'connection.php';
 $flag = false;
 if(isset($_POST['but_submit'])){
