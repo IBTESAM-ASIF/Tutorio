@@ -8,10 +8,16 @@
   <link rel="stylesheet" href="nav_style.css">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="slide.css">
+  <link rel="stylesheet" href="home.css">
   <title>Tutorio</title>
 </head>
 
 <body>
+  <h1>
+  Over every mountain<br>
+  there is a path
+</h1>  
+<div id="cover"></div>
   <div class="nav">
     <div class="hamburger-menu">
       <input id="menu__toggle" type="checkbox" />
@@ -28,6 +34,26 @@
     </div>
   </div>
 
+
+<script>
+  $(window).scroll(function(e) {
+  frames = 17;
+  step = ($("body").height() - $(window).height()) / frames;
+  scrollStep = parseInt($(window).scrollTop() / step);
+  maskPosition = 100 - ( 100 / frames * scrollStep);
+  $("#cover").css({
+    "mask-position": maskPosition + "% 50%",
+    "-webkit-mask-position": maskPosition + "% 50%"
+  });
+});
+
+/* Just for CodePen Thumbnail */
+$("html, body").animate({ scrollTop: $(document).height() - $(window).height() }, 1200).queue(function(next) {
+  $("html, body").animate({ scrollTop: 0 }, 1200);
+  next();
+});
+
+</script>
 </body>
 
 </html>
