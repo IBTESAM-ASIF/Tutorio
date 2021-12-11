@@ -66,11 +66,6 @@ if (isset($_POST['submit'])) {
             </div>
 
         </form>
-
-        <p class="text--center">Already a member? <a href="login.php">Sign in now</a> <svg class="icon">
-                <use xlink:href="#icon-arrow-right"></use>
-            </svg></p>
-
     </div>
 </body>
 

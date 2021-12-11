@@ -1,3 +1,11 @@
+<?php 
+session_start();
+
+if (!isset($_SESSION['uname'])){
+  header('location:home.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,15 +16,11 @@
   <link rel="stylesheet" href="nav_style.css">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="slide.css">
-  <link rel="stylesheet" href="home.css">
+  <!-- <link rel="stylesheet" href="home.css"> -->
   <title>Tutorio</title>
 </head>
 
 <body>
-  <h1>
-  Over every mountain<br>
-  there is a path
-</h1>  
 <div id="cover"></div>
   <div class="nav">
     <div class="hamburger-menu">
@@ -29,7 +33,15 @@
         <li><a class="menu__item" href="#">Find Tutors</a></li>
         <li><a class="menu__item" href="./Aboutus.php">About US</a></li>
         <li><a class="menu__item" href="./contact.php">Contact US</a></li>
-        <li><a class="menu__item" href="./login.php">Login/Signup</a></li>
+        <?php
+          if(!isset($_SESSION['uname'])){
+            echo '<li><a class="menu__item" href="./login.php">Login/Signup</a></li>';
+          }
+          else{
+            echo '<li><a class="menu__item" href="./login.php">Signup as Tutor</a></li>';
+            echo '<li><a class="menu__item" href="./login.php">Logout</a></li>';
+          }
+        ?>
       </ul>
     </div>
   </div>

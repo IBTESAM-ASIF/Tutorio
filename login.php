@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include 'connection.php';
 $flag = false;
 if(isset($_POST['but_submit'])){
@@ -13,9 +13,11 @@ if(isset($_POST['but_submit'])){
         $result = mysqli_query($con,$sql_query);
         $row = mysqli_fetch_array($result);
 
+        $data = mysqli_fetch_assoc($result);
         $count = $row['cntUser'];
-
+        
         if($count > 0){
+            $name = $row['Student_ID'];
             $_SESSION['uname'] = $uname;
             header('Location: home.php');
         }else{
@@ -23,7 +25,6 @@ if(isset($_POST['but_submit'])){
         }
 
     }
-
 }
 ?>
 <!DOCTYPE html>
