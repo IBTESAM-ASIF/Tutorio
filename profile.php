@@ -55,13 +55,13 @@ $country = $row['Country'];
             </ul>
         </div>
     </div>
-<form action="">
-    <label for=""></label>
-    <input type="text">
-    
-    <label for=""></label>
-    <input type="text">
-</form>
+    <form action="">
+        <label for=""></label>
+        <input type="text">
+
+        <label for=""></label>
+        <input type="text">
+    </form>
 
 
 </body>

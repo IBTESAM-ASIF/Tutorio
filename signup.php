@@ -41,11 +41,13 @@ if (isset($_POST['submit'])) {
         <form action="./signup.php" method="POST" class="form login">
 
             <div class="form__field">
-                <input id="login__username" type="text" name="first" class="form__input" placeholder="First Name" required>
+                <input id="login__username" type="text" name="first" class="form__input" placeholder="First Name"
+                    required>
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="last" class="form__input" placeholder="Last Name" required>
+                <input id="login__username" type="text" name="last" class="form__input" placeholder="Last Name"
+                    required>
             </div>
 
             <div class="form__field">
@@ -61,15 +63,18 @@ if (isset($_POST['submit'])) {
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="country" class="form__input" placeholder="country" required>
+                <input id="login__username" type="text" name="country" class="form__input" placeholder="country"
+                    required>
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="username" class="form__input" placeholder="username Name" required>
+                <input id="login__username" type="text" name="username" class="form__input" placeholder="username Name"
+                    required>
             </div>
 
             <div class="form__field">
-                <input id="login__password" type="password" name="password" class="form__input" placeholder="Password" required>
+                <input id="login__password" type="password" name="password" class="form__input" placeholder="Password"
+                    required>
             </div>
 
 

@@ -2,28 +2,27 @@
 session_start();
 include 'connection.php';
 $flag = false;
-if(isset($_POST['but_submit'])){
+if (isset($_POST['but_submit'])) {
 
-    $uname = mysqli_real_escape_string($con,$_POST['username']);
-    $password = mysqli_real_escape_string($con,$_POST['password']);
+    $uname = mysqli_real_escape_string($con, $_POST['username']);
+    $password = mysqli_real_escape_string($con, $_POST['password']);
 
-    if ($uname != "" && $password != ""){
+    if ($uname != "" && $password != "") {
 
-        $sql_query = "select count(*) as cntUser from student where Email='".$uname."' and Password='".$password."'";
-        $result = mysqli_query($con,$sql_query);
+        $sql_query = "select count(*) as cntUser from student where Email='" . $uname . "' and Password='" . $password . "'";
+        $result = mysqli_query($con, $sql_query);
         $row = mysqli_fetch_array($result);
 
         $data = mysqli_fetch_assoc($result);
         $count = $row['cntUser'];
-        
-        if($count > 0){
+
+        if ($count > 0) {
             $name = $row['Student_ID'];
             $_SESSION['uname'] = $uname;
             header('Location: home.php');
-        }else{
+        } else {
             $flag = true;
         }
-
     }
 }
 ?>
@@ -62,20 +61,22 @@ if(isset($_POST['but_submit'])){
                 <input id="login__password" type="password" name="password" class="form__input" placeholder="Password"
                     required>
             </div>
-                    <?php if($flag == true){
-            echo "<h3>Invalid username and password</h3>";
-        } ?>
+            <?php if ($flag == true) {
+                echo "<h3>Invalid username and password</h3>";
+            } ?>
 
             <div class="form__field">
                 <input type="submit" id="but_submit" value="Sign In" name="but_submit">
             </div>
         </form>
         <br>
-        <a href="./tutorlogin.php"><button style="background-color: var(--loginSubmitBackgroundColor); color: var(--loginSubmitColor); font-weight: 700; text-transform: uppercase;border-radius: var(--loginBorderRadus);padding: 1rem;inline-size: 100%;">Sign in as tutor</button></a>
+        <a href="./tutorlogin.php"><button
+                style="background-color: var(--loginSubmitBackgroundColor); color: var(--loginSubmitColor); font-weight: 700; text-transform: uppercase;border-radius: var(--loginBorderRadus);padding: 1rem;inline-size: 100%;">Sign
+                in as tutor</button></a>
         <p class="text--center">Not a Student? <a href="signup.php">Sign up now</a> <svg class="icon">
-            <use xlink:href="#icon-arrow-right"></use>
-        </svg></p>
-        
+                <use xlink:href="#icon-arrow-right"></use>
+            </svg></p>
+
     </div>
 
     <svg xmlns="http://www.w3.org/2000/svg" class="icons">
@@ -93,4 +94,5 @@ if(isset($_POST['but_submit'])){
         </symbol>
     </svg>
 </body>
+
 </html>

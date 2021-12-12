@@ -45,11 +45,13 @@ if (isset($_POST['submit'])) {
         <form action="./tutorsignup.php" method="POST" class="form login">
 
             <div class="form__field">
-                <input id="login__username" type="text" name="first" class="form__input" placeholder="First Name" required>
+                <input id="login__username" type="text" name="first" class="form__input" placeholder="First Name"
+                    required>
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="last" class="form__input" placeholder="Last Name" required>
+                <input id="login__username" type="text" name="last" class="form__input" placeholder="Last Name"
+                    required>
             </div>
 
             <div class="form__field">
@@ -65,31 +67,39 @@ if (isset($_POST['submit'])) {
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="country" class="form__input" placeholder="country" required>
+                <input id="login__username" type="text" name="country" class="form__input" placeholder="country"
+                    required>
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="description" class="form__input" placeholder="description " required>
+                <input id="login__username" type="text" name="description" class="form__input"
+                    placeholder="description " required>
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="language" class="form__input" placeholder="language " required>
+                <input id="login__username" type="text" name="language" class="form__input" placeholder="language "
+                    required>
             </div>
 
             <div class="">
-                <input style="padding: 1rem; background-color: var(--loginInputBackgroundColor); border-bottom-left-radius: 0; border-top-left-radius: 0;" name="fee" placeholder="Fees /Hour" required>
+                <input
+                    style="padding: 1rem; background-color: var(--loginInputBackgroundColor); border-bottom-left-radius: 0; border-top-left-radius: 0;"
+                    name="fee" placeholder="Fees /Hour" required>
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="source" class="form__input" placeholder="Online/Onsite" required>
+                <input id="login__username" type="text" name="source" class="form__input" placeholder="Online/Onsite"
+                    required>
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="username" class="form__input" placeholder="Email" required>
+                <input id="login__username" type="text" name="username" class="form__input" placeholder="Email"
+                    required>
             </div>
 
             <div class="form__field">
-                <input id="login__password" type="password" name="password" class="form__input" placeholder="Password" required>
+                <input id="login__password" type="password" name="password" class="form__input" placeholder="Password"
+                    required>
             </div>
 
 
