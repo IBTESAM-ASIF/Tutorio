@@ -45,7 +45,7 @@ if(isset($_POST['but_submit'])){
 <body class="align">
     <div class="grid">
         <h1>User Login</h1>
-        <form action="" method="POST" class="form login">
+        <form action="./login.php" method="POST" class="form login">
 
             <div class="form__field">
                 <label for="login__username"><svg class="icon">

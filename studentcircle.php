@@ -1,10 +1,12 @@
 <?php
-include ('connection.php');
+include 'connection.php';
 session_start();
 
 if (isset($_SESSION['uname'])) {
     $name = $_SESSION['uname'];
 }
+$query = "select * from tutor t join teacter-student ts on t.email = ts.teacherEmail join student s on ts.studentEmail = s.Email where t.email='" .$uname. "'";
+$result = $conn->query($sql);
 
 ?>
 
@@ -33,7 +35,7 @@ if (isset($_SESSION['uname'])) {
             <ul class="menu__box">
                 <li><a class="menu__item" href="#">Home</a></li>
                 <li><a class="menu__item" href="#">My Lectures</a></li>
-                <li><a class="menu__item" href="./studentcircle.php">Student Circle</a></li>
+                <li><a class="menu__item" href="./Aboutus.php">Student Circle</a></li>
 
                 <?php
                 if (isset($_SESSION['uname'])) {
@@ -43,6 +45,30 @@ if (isset($_SESSION['uname'])) {
                 ?>
             </ul>
         </div>
+    </div>
+
+    <div class="list">
+        <table>
+            <tr>
+                <th><h1>Students</h1></th>
+            </tr>
+            <t>
+                <th>NAme</th>
+                <th>course</th>
+
+            </t>
+            <?php 
+            while($rows = mysqli_fetch_assoc($result)){
+            }
+            ?>
+            <tr>
+                <td><?php echo $row['ID']; ?></td>
+                <td><?php echo $row['ID']; ?></td>
+                <td><?php echo $row['ID']; ?></td>
+                <td><?php echo $row['ID']; ?></td>
+                <td><?php echo $row['ID']; ?></td>
+            </tr>
+        </table>
     </div>
 
 

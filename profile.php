@@ -2,9 +2,9 @@
 include 'connection.php';
 session_start();
 
-$uname = $_SESSION['uname'];
+$name = $_SESSION['uname'];
 
-$sql_query = "select * from student where Email ='" . $uname . "'";
+$sql_query = "select * from student where Email ='" . $name . "'";
 $result = mysqli_query($con, $sql_query);
 $row = mysqli_fetch_array($result);
 $first = $row['First_Name'];
@@ -31,6 +31,13 @@ $country = $row['Country'];
 </head>
 
 <body>
+    <form action="">
+        <label for=""></label>
+        <input type="text">
+        
+        <label for=""></label>
+        <input type="text">
+    </form>
     <div id="cover"></div>
     <div class="nav">
         <div class="hamburger-menu">
@@ -55,13 +62,6 @@ $country = $row['Country'];
             </ul>
         </div>
     </div>
-<form action="">
-    <label for=""></label>
-    <input type="text">
-    
-    <label for=""></label>
-    <input type="text">
-</form>
 
 
 </body>

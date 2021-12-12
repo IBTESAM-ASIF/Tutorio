@@ -1,11 +1,12 @@
 <?php
+include ('connection.php');
 session_start();
 
 if (!isset($_SESSION['uname'])) {
-  header('location:home.php');
+  $name = $_SESSION['uname'];
+  
 }
 
-$name = $_SESSION['uname'];
 ?>
 
 <!DOCTYPE html>
