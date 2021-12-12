@@ -5,9 +5,9 @@ session_start();
     $uname = $_SESSION['uname'];
     echo $uname;
 
-    $sql_query = 'select * from student where Student_ID = 0';
+    $sql_query = "select * from students where Email ='".$uname."'";
     $result = mysqli_query($con,$sql_query);
-    $row = mysqli_fetch_assoc($result);
+    $row = mysqli_fetch_array($result);
     $first = $row['First_Name'];
     $last = $row['Last_Name'];
     $number = $row['Phone_Number'];
@@ -35,7 +35,7 @@ session_start();
 
 <body>
 
-<h1>hello</h1>
+
     
 </body>
 </html>
