@@ -3,16 +3,18 @@ include("connection.php");
 if (isset($_POST['submit'])) {
     $first = $_POST['first'];
     $last = $_POST['last'];
+    $phone = $_POST['phone'];
     $age = $_POST['age'];
-    $city = $_POST['city'];
+    $gender = $_POST['gender'];
+    $country = $_POST['country'];
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $sql = "INSERT INTO `users` (`first`, `last`, `age`, `city`, `username`, `password`) VALUES ('$first','$last', '$age', '$city', '$username', '$password');";
-    //echo $sql;
+    $sql .= "INSERT INTO `student` (`First_Name`, `Last_Name`, `Phone_Number` , `Age`, `Gender` , `Country`) VALUES ('$first','$last', '$phone' , '$age', '$gender' , '$country');";
+    $sql .= "INSERT INTO `student_login` (`Email` , `Password`) VALUES ('$username' , '$password')";
 
-    if ($con->query($sql) == true) {
-        header("Location: Final_design/login.php");
+    if ($con->multi_query($sql) == true) {
+        header("Location: Project/Final_Design/home.php");
     } else {
         echo "error, $sql <br> $con->error()";
     }
@@ -46,20 +48,29 @@ if (isset($_POST['submit'])) {
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="age" class="form__input" placeholder="Age" required>
+                <input id="login__username" type="text" name="phone" class="form__input" placeholder="phone" required>
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="city" class="form__input" placeholder="City" required>
+                <input id="login__username" type="text" name="age" class="form__input" placeholder="age" required>
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="username" class="form__input" placeholder="Username" required>
+                <input id="login__username" type="text" name="gender" class="form__input" placeholder="gender" required>
+            </div>
+
+            <div class="form__field">
+                <input id="login__username" type="text" name="country" class="form__input" placeholder="country" required>
+            </div>
+
+            <div class="form__field">
+                <input id="login__username" type="text" name="username" class="form__input" placeholder="username Name" required>
             </div>
 
             <div class="form__field">
                 <input id="login__password" type="password" name="password" class="form__input" placeholder="Password" required>
             </div>
+
 
             <div class="form__field">
                 <input type="submit" name="submit" value="Sign UP">

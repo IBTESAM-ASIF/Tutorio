@@ -1,5 +1,15 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['uname'])) {
+    header('location:home.php');
+}
+
+$name = $_SESSION['uname'];
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,10 +18,11 @@
     <link rel="stylesheet" href="footer.css">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
     <style>
-        body{
+        body {
             background-color: #2c3338;
         }
-        .heading{
+
+        .heading {
             color: white;
             text-align: center;
             font-family: 'Merriweather', serif;
@@ -19,26 +30,36 @@
     </style>
     <title>Tutorio | Contact</title>
 </head>
+
 <body>
     <div class="heading">
         <h2>Contact Us</h2>
     </div>
+    <div id="cover"></div>
     <div class="nav">
         <div class="hamburger-menu">
-          <input id="menu__toggle" type="checkbox" />
-          <label class="menu__btn" for="menu__toggle">
-            <span></span>
-          </label>
-          <ul class="menu__box">
-            <li><a class="menu__item" href="./home.php">Home</a></li>
-            <li><a class="menu__item" href="#">Find Tutors</a></li>
-            <li><a class="menu__item" href="./Aboutus.php">About US</a></li>
-            <li><a class="menu__item" href="./contact.php">Contact US</a></li>
-            <li><a class="menu__item" href="./login.php">Login/Signup</a></li>
-          </ul>
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+                <span></span>
+            </label>
+            <ul class="menu__box">
+                <li><a class="menu__item" href="#">Home</a></li>
+                <li><a class="menu__item" href="#">Find Tutors</a></li>
+                <li><a class="menu__item" href="./Aboutus.php">About US</a></li>
+                <li><a class="menu__item" href="./contact.php">Contact US</a></li>
+                <?php
+                if (!isset($_SESSION['uname'])) {
+                    echo '<li><a class="menu__item" href="./login.php">Login/Signup</a></li>';
+                    echo '<li><a class="menu__item" href="./tutor.php">Signup as Tutor</a></li>';
+                } else {
+                    echo '<li><a class="menu__item" href="./login.php">' . $name . '</a></li>';
+                    echo '<li><a class="menu__item" href="./login.php">Logout</a></li>';
+                }
+                ?>
+            </ul>
         </div>
-      </div>
-      <footer class="site-footer">
+    </div>
+    <footer class="site-footer">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-6">
@@ -94,6 +115,7 @@
             </div>
         </div>
     </footer>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
+
 </html>

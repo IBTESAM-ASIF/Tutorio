@@ -50,16 +50,38 @@ if (isset($_POST['submit'])) {
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="city" class="form__input" placeholder="City" required>
+                <input id="login__username" type="text" name="phone" class="form__input" placeholder="phone" required>
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="username" class="form__input" placeholder="Username" required>
+                <input id="login__username" type="text" name="gender" class="form__input" placeholder="gender" required>
             </div>
 
             <div class="form__field">
-                <input id="login__password" type="password" name="password" class="form__input" placeholder="Password" required>
+                <input id="login__password" type="text" name="country" class="form__input" placeholder="country" required>
             </div>
+
+            <div class="form__field">
+                <input id="login__username" type="text" name="Description" class="form__input" placeholder="Description" required>
+            </div>
+
+            <div class="form__field">
+                <input id="login__username" type="text" name="Language" class="form__input" placeholder="Language" required>
+            </div>
+
+            <div class="form__field">
+                <input id="login__username" type="text" name="fee" class="form__input" placeholder="fee" required>
+            </div>
+            
+            <div class="form__field">
+                <input id="login__username" type="text" name="Online/Onsite" class="form__input" placeholder="Online/Onsite" required>
+            </div>
+
+            <div class="form__field">
+                <label id="login__username" class="form__input" for="upload">Upload Your resume here</label><br>
+                <input id="login__username" type="file" name="upload" class="form__input" placeholder="Resume upload" accept=".pdf,.doc" required>
+            </div>
+
 
             <div class="form__field">
                 <input type="submit" name="submit" value="Sign UP">

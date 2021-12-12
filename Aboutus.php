@@ -1,3 +1,12 @@
+<?php 
+session_start();
+
+if (!isset($_SESSION['uname'])){
+  header('location:home.php');
+}
+
+$name = $_SESSION['uname'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,21 +37,31 @@
     <div class="heading">
         <h2>About Us</h2>
     </div>
-    <div class="nav">
-        <div class="hamburger-menu">
-            <input id="menu__toggle" type="checkbox" />
-            <label class="menu__btn" for="menu__toggle">
-                <span></span>
-            </label>
-            <ul class="menu__box">
-                <li><a class="menu__item" href="./home.php">Home</a></li>
-                <li><a class="menu__item" href="#">Find Tutors</a></li>
-                <li><a class="menu__item" href="./Aboutus.php">About US</a></li>
-                <li><a class="menu__item" href="./contact.php">Contact US</a></li>
-                <li><a class="menu__item" href="./login.php">Login/Signup</a></li>
-            </ul>
-        </div>
+    <div id="cover"></div>
+  <div class="nav">
+    <div class="hamburger-menu">
+      <input id="menu__toggle" type="checkbox" />
+      <label class="menu__btn" for="menu__toggle">
+        <span></span>
+      </label>
+      <ul class="menu__box">
+        <li><a class="menu__item" href="#">Home</a></li>
+        <li><a class="menu__item" href="#">Find Tutors</a></li>
+        <li><a class="menu__item" href="./Aboutus.php">About US</a></li>
+        <li><a class="menu__item" href="./contact.php">Contact US</a></li>
+        <?php
+          if(!isset($_SESSION['uname'])){
+            echo '<li><a class="menu__item" href="./login.php">Login/Signup</a></li>';
+            echo '<li><a class="menu__item" href="./tutor.php">Signup as Tutor</a></li>';
+          }
+          else{
+            echo '<li><a class="menu__item" href="./login.php">'. $name.'</a></li>';
+            echo '<li><a class="menu__item" href="./login.php">Logout</a></li>';
+          }
+        ?>
+      </ul>
     </div>
+  </div>
 
     <footer class="site-footer">
         <div class="container">

@@ -4,6 +4,8 @@ session_start();
 if (!isset($_SESSION['uname'])){
   header('location:home.php');
 }
+
+$name = $_SESSION['uname'];
 ?>
 
 <!DOCTYPE html>
@@ -36,9 +38,10 @@ if (!isset($_SESSION['uname'])){
         <?php
           if(!isset($_SESSION['uname'])){
             echo '<li><a class="menu__item" href="./login.php">Login/Signup</a></li>';
+            echo '<li><a class="menu__item" href="./tutor.php">Signup as Tutor</a></li>';
           }
           else{
-            echo '<li><a class="menu__item" href="./login.php">Signup as Tutor</a></li>';
+            echo '<li><a class="menu__item" href="./profile.php">'. $name.'</a></li>';
             echo '<li><a class="menu__item" href="./login.php">Logout</a></li>';
           }
         ?>
