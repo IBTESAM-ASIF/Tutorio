@@ -61,7 +61,7 @@ if(isset($_POST['but_submit'])){
                 <input id="login__password" type="password" name="password" class="form__input" placeholder="Password"
                     required>
             </div>
-                    <?php if($flag == true){
+            <?php if($flag == true){
             echo "<h3>Invalid username and password</h3>";
         } ?>
 
@@ -71,7 +71,9 @@ if(isset($_POST['but_submit'])){
 
         </form>
         <br>
-        <a href="./login.php"><button style="background-color: var(--loginSubmitBackgroundColor); color: var(--loginSubmitColor); font-weight: 700; text-transform: uppercase;border-radius: var(--loginBorderRadus);padding: 1rem;inline-size: 100%;">Sign in as User/Student</button></a>
+        <a href="./login.php"><button
+                style="background-color: var(--loginSubmitBackgroundColor); color: var(--loginSubmitColor); font-weight: 700; text-transform: uppercase;border-radius: var(--loginBorderRadus);padding: 1rem;inline-size: 100%;">Sign
+                in as User/Student</button></a>
         <p class="text--center">Not a Tutor? <a href="tutorsignup.php">Sign up now</a> <svg class="icon">
                 <use xlink:href="#icon-arrow-right"></use>
             </svg></p>
@@ -93,4 +95,5 @@ if(isset($_POST['but_submit'])){
         </symbol>
     </svg>
 </body>
+
 </html>
