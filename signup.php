@@ -3,15 +3,17 @@ include("connection.php");
 if (isset($_POST['submit'])) {
     $first = $_POST['first'];
     $last = $_POST['last'];
+    $email = $_POST['email'];
     $age = $_POST['age'];
     $city = $_POST['city'];
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $sql = "INSERT INTO `users` (`first`, `last`, `age`, `city`, `username`, `password`) VALUES ('$first','$last', '$age', '$city', '$username', '$password');";
+    $sql1 = "INSERT INTO `student` (`first`, `last`, `age`, `city`,) VALUES ('$first','$last', '$age', '$city');";
+    $sql2 = "INSERT INTO 'student_login' ('email', 'username', 'password') VALUES , ('$email', '$username', '$password');";
     //echo $sql;
 
-    if ($con->query($sql) == true) {
+    if ($con->query($sql1) == true) {
         header("Location: Final_design/login.php");
     } else {
         echo "error, $sql <br> $con->error()";
@@ -43,6 +45,10 @@ if (isset($_POST['submit'])) {
 
             <div class="form__field">
                 <input id="login__username" type="text" name="last" class="form__input" placeholder="Last Name" required>
+            </div>
+
+            <div class="form__field">
+                <input id="login__username" type="text" name="email" class="form__input" placeholder="Last Name" required>
             </div>
 
             <div class="form__field">
