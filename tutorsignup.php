@@ -3,18 +3,22 @@ include("connection.php");
 if (isset($_POST['submit'])) {
     $first = $_POST['first'];
     $last = $_POST['last'];
-    $phone = $_POST['phone'];
     $age = $_POST['age'];
+    $phone = $_POST['phone'];
     $gender = $_POST['gender'];
     $country = $_POST['country'];
+    $description = $_POST['description'];
+    $language = $_POST['language'];
+    $fee = $_POST['fee'];
+    $source = $_POST['source'];
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $sql = "INSERT INTO `student` (`First_Name`, `Last_Name`, `Phone_Number` , `Age`, `Gender` , `Country` , `Email` , `Password`) VALUES ('$first','$last', '$phone' , '$age', '$gender' , '$country' , '$username' , '$password');";
+    $sql = "INSERT INTO `tutor` (`first`, `last`, `age`, `phone`, `gender`, `country`, `description`, `language`, `fee`, `source`, `email`, `password`) VALUES ('$first', '$last', '$age', '$phone', '$gender', '$country', '$description', '$language', '$fee', '$source', '$username', '$password');";
 
 
     if ($con->query($sql) == true) {
-        header("Location: /Project/Final_Design/login.php");
+        header("Location: /Project/Final_Design/tutorlogin.php");
     } else {
         echo "error, $sql <br> $con->error()";
     }
@@ -37,8 +41,8 @@ if (isset($_POST['submit'])) {
 
 <body class="align">
     <div class="grid">
-        <h1>Signup as Student</h1>
-        <form action="./signup.php" method="POST" class="form login">
+        <h1>Signup As Tutor</h1>
+        <form action="./tutorsignup.php" method="POST" class="form login">
 
             <div class="form__field">
                 <input id="login__username" type="text" name="first" class="form__input" placeholder="First Name" required>
@@ -49,11 +53,11 @@ if (isset($_POST['submit'])) {
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="phone" class="form__input" placeholder="phone" required>
+                <input id="login__username" type="text" name="age" class="form__input" placeholder="age" required>
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="age" class="form__input" placeholder="age" required>
+                <input id="login__username" type="text" name="phone" class="form__input" placeholder="phone" required>
             </div>
 
             <div class="form__field">
@@ -65,7 +69,23 @@ if (isset($_POST['submit'])) {
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="username" class="form__input" placeholder="username Name" required>
+                <input id="login__username" type="text" name="description" class="form__input" placeholder="description " required>
+            </div>
+
+            <div class="form__field">
+                <input id="login__username" type="text" name="language" class="form__input" placeholder="language " required>
+            </div>
+
+            <div class="">
+                <input style="padding: 1rem; background-color: var(--loginInputBackgroundColor); border-bottom-left-radius: 0; border-top-left-radius: 0;" name="fee" placeholder="Fees /Hour" required>
+            </div>
+
+            <div class="form__field">
+                <input id="login__username" type="text" name="source" class="form__input" placeholder="Online/Onsite" required>
+            </div>
+
+            <div class="form__field">
+                <input id="login__username" type="text" name="username" class="form__input" placeholder="Email" required>
             </div>
 
             <div class="form__field">
@@ -79,7 +99,7 @@ if (isset($_POST['submit'])) {
 
         </form>
 
-        <p class="text--center">Already a member? <a href="login.php">Sign in now</a> <svg class="icon">
+        <p class="text--center">Already a Tutor? <a href="tutorlogin.php">Sign in now</a> <svg class="icon">
                 <use xlink:href="#icon-arrow-right"></use>
             </svg></p>
 

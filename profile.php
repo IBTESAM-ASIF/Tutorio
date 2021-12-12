@@ -1,21 +1,19 @@
-<?php 
+<?php
 include 'connection.php';
 session_start();
 
-    $uname = $_SESSION['uname'];
+$uname = $_SESSION['uname'];
 
-    $sql_query = "select * from student where Email ='".$uname."'";
-    $result = mysqli_query($con,$sql_query);
-    $row = mysqli_fetch_array($result);
-    $first = $row['First_Name'];
-    $last = $row['Last_Name'];
-    $number = $row['Phone_Number'];
-    $age = $row['Age'];
-    $gender = $row['Gender'];
-    $country = $row['Country'];
-    
-    echo $first . "" . $last;
-        
+$sql_query = "select * from student where Email ='" . $uname . "'";
+$result = mysqli_query($con, $sql_query);
+$row = mysqli_fetch_array($result);
+$first = $row['First_Name'];
+$last = $row['Last_Name'];
+$number = $row['Phone_Number'];
+$age = $row['Age'];
+$gender = $row['Gender'];
+$country = $row['Country'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,33 +31,39 @@ session_start();
 </head>
 
 <body>
-<div id="cover"></div>
-  <div class="nav">
-    <div class="hamburger-menu">
-      <input id="menu__toggle" type="checkbox" />
-      <label class="menu__btn" for="menu__toggle">
-        <span></span>
-      </label>
-      <ul class="menu__box">
-        <li><a class="menu__item" href="#">Home</a></li>
-        <li><a class="menu__item" href="#">Find Tutors</a></li>
-        <li><a class="menu__item" href="./Aboutus.php">About US</a></li>
-        <li><a class="menu__item" href="./contact.php">Contact US</a></li>
-        <?php
-          if(!isset($_SESSION['uname'])){
-            echo '<li><a class="menu__item" href="./login.php">Login/Signup</a></li>';
-            echo '<li><a class="menu__item" href="./tutor.php">Signup as Tutor</a></li>';
-          }
-          else{
-            echo '<li><a class="menu__item" href="./profile.php">'. $name.'</a></li>';
-            echo '<li><a class="menu__item" href="./login.php">Logout</a></li>';
-          }
-        ?>
-      </ul>
+    <div id="cover"></div>
+    <div class="nav">
+        <div class="hamburger-menu">
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+                <span></span>
+            </label>
+            <ul class="menu__box">
+                <li><a class="menu__item" href="#">Home</a></li>
+                <li><a class="menu__item" href="#">Find Tutors</a></li>
+                <li><a class="menu__item" href="./Aboutus.php">About US</a></li>
+                <li><a class="menu__item" href="./contact.php">Contact US</a></li>
+                <?php
+                if (!isset($_SESSION['uname'])) {
+                    echo '<li><a class="menu__item" href="./login.php">Login/Signup</a></li>';
+                    echo '<li><a class="menu__item" href="./tutor.php">Signup as Tutor</a></li>';
+                } else {
+                    echo '<li><a class="menu__item" href="./profile.php">' . $name . '</a></li>';
+                    echo '<li><a class="menu__item" href="./login.php">Logout</a></li>';
+                }
+                ?>
+            </ul>
+        </div>
     </div>
-  </div>
-
-
+<form action="">
+    <label for=""></label>
+    <input type="text">
     
+    <label for=""></label>
+    <input type="text">
+</form>
+
+
 </body>
+
 </html>
