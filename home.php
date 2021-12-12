@@ -1,7 +1,7 @@
-<?php 
+<?php
 session_start();
 
-if (!isset($_SESSION['uname'])){
+if (!isset($_SESSION['uname'])) {
   header('location:home.php');
 }
 
@@ -23,7 +23,7 @@ $name = $_SESSION['uname'];
 </head>
 
 <body>
-<div id="cover"></div>
+  <div id="cover"></div>
   <div class="nav">
     <div class="hamburger-menu">
       <input id="menu__toggle" type="checkbox" />
@@ -36,39 +36,21 @@ $name = $_SESSION['uname'];
         <li><a class="menu__item" href="./Aboutus.php">About US</a></li>
         <li><a class="menu__item" href="./contact.php">Contact US</a></li>
         <?php
-          if(!isset($_SESSION['uname'])){
-            echo '<li><a class="menu__item" href="./login.php">Login/Signup</a></li>';
-            echo '<li><a class="menu__item" href="./tutor.php">Signup as Tutor</a></li>';
-          }
-          else{
-            echo '<li><a class="menu__item" href="./profile.php">'. $name.'</a></li>';
-            echo '<li><a class="menu__item" href="./login.php">Logout</a></li>';
-          }
+        if (!isset($_SESSION['uname'])) {
+          echo '<li><a class="menu__item" href="./login.php">Login/Signup</a></li>';
+          echo '<li><a class="menu__item" href="./tutor.php">Signup as Tutor</a></li>';
+        } else {
+          echo '<li><a class="menu__item" href="./profile.php">' . $name . '</a></li>';
+          echo '<li><a class="menu__item" href="./login.php">Logout</a></li>';
+        }
         ?>
       </ul>
     </div>
   </div>
 
 
-<script>
-  $(window).scroll(function(e) {
-  frames = 17;
-  step = ($("body").height() - $(window).height()) / frames;
-  scrollStep = parseInt($(window).scrollTop() / step);
-  maskPosition = 100 - ( 100 / frames * scrollStep);
-  $("#cover").css({
-    "mask-position": maskPosition + "% 50%",
-    "-webkit-mask-position": maskPosition + "% 50%"
-  });
-});
 
-/* Just for CodePen Thumbnail */
-$("html, body").animate({ scrollTop: $(document).height() - $(window).height() }, 1200).queue(function(next) {
-  $("html, body").animate({ scrollTop: 0 }, 1200);
-  next();
-});
-
-</script>
+  </script>
 </body>
 
 </html>
