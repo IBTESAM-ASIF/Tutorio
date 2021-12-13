@@ -1,11 +1,11 @@
 <?php 
 session_start();
 
-if (!isset($_SESSION['uname'])){
-  header('location:home.php');
-}
+if (isset($_SESSION['uname'])) {
+    $name = $_SESSION['uname'];
+  }
 
-$name = $_SESSION['uname'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,10 +52,10 @@ $name = $_SESSION['uname'];
         <?php
           if(!isset($_SESSION['uname'])){
             echo '<li><a class="menu__item" href="./login.php">Login/Signup</a></li>';
-            echo '<li><a class="menu__item" href="./tutor.php">Signup as Tutor</a></li>';
+            echo '<li><a class="menu__item" href="./tutorsignup.php">Signup as Tutor</a></li>';
           }
           else{
-            echo '<li><a class="menu__item" href="./login.php">'. $name.'</a></li>';
+            echo '<li><a class="menu__item" href="./editProf.php">'. $name.'</a></li>';
             echo '<li><a class="menu__item" href="./login.php">Logout</a></li>';
           }
         ?>
