@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
 
 
     if ($con->query($sql) == true) {
-        header("Location: Final_Design/tutorlogin.php");
+        header("Location: tutorlogin.php");
     } else {
         echo "error, $sql <br> $con->error()";
     }

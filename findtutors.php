@@ -1,10 +1,15 @@
 <?php
-include ('connection.php');
+include('connection.php');
 session_start();
 
 if (isset($_SESSION['uname'])) {
   $name = $_SESSION['uname'];
 }
+
+// fetch data from database
+
+
+
 
 ?>
 
@@ -48,7 +53,37 @@ if (isset($_SESSION['uname'])) {
     </div>
   </div>
 
+  <table border="2">
+    <tr>
+      <td>Sr.No.</td>
+      <td>Full Name</td>
+      <td>Age</td>
+    </tr>
 
+    <?php
+
+    $sql = mysqli_query($con, "select * from tutor");
+
+    if ($con->query($sql) == true) {
+      header("Location: ./findtutors.php");
+    } else {
+      echo "error, $sql <br> $con->error()";
+    }
+    
+    while ($data = mysqli_fetch_array($sql)) {
+    ?>
+      <tr>
+        <td><?php echo $data['First_Name']; ?></td>
+        <td><?php echo $data['Last_Name']; ?></td>
+        <td><?php echo $data['Phone_Number']; ?></td>
+        <td><?php echo $data['Age']; ?></td>
+        <td><?php echo $data['Gender']; ?></td>
+        <td><?php echo $data['Country']; ?></td>
+      </tr>
+    <?php
+    }
+    ?>
+  </table>
 
   </script>
 </body>

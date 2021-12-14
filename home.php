@@ -33,7 +33,7 @@ if (isset($_SESSION['uname'])) {
       </label>
       <ul class="menu__box">
         <li><a class="menu__item" href="./home.php">Home</a></li>
-        <li><a class="menu__item" href="#">Find Tutors</a></li>
+        <li><a class="menu__item" href="./findtutors.php">Find Tutors</a></li>
         <li><a class="menu__item" href="./Aboutus.php">About US</a></li>
         <li><a class="menu__item" href="./contact.php">Contact US</a></li>
         <?php
