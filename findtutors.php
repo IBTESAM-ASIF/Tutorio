@@ -19,7 +19,6 @@ if (isset($_SESSION['uname'])) {
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/slide.css">
   <link rel="stylesheet" href="css/home.css">
-  <!-- <link rel="stylesheet" href="css/home.css"> -->
   <title>Tutorio</title>
 </head>
 

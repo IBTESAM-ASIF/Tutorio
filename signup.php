@@ -14,6 +14,7 @@ if (isset($_POST['submit'])) {
 
 
     if ($con->query($sql) == true) {
+        
         header("Location: Final_Design/login.php");
     } else {
         echo "error, $sql <br> $con->error()";

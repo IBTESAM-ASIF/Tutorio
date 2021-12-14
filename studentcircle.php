@@ -5,8 +5,10 @@ session_start();
 if (isset($_SESSION['uname'])) {
     $name = $_SESSION['uname'];
 }
-$query = "select * from tutor t join teacter-student ts on t.email = ts.teacherEmail join student s on ts.studentEmail = s.Email where t.email='" .$uname. "'";
-$result = $conn->query($sql);
+$query = "select * from tutor t join teacher_student ts on t.email = ts.teacherEmail join student s on ts.studentEmail = s.Email where t.email='" .$uname. "'";
+// $query = "select * from tutor t join teacher_student ts on t.email = ts.teacherEmail join student s on ts.studentEmail = s.Email where t.email='owais'";
+// select * from tutor,teacher_student,student where tutor.email = teacher_student.teacherEmail and teacher_student.studentEmail = student.Email;
+$result = mysqli_query($con, $query);
 
 ?>
 
@@ -17,10 +19,11 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="nav_style.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="slide.css">
-    <!-- <link rel="stylesheet" href="home.css"> -->
+    <link rel="stylesheet" href="css/nav_style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/slide.css">
+    <link rel="stylesheet" href="css/home.css">
+
     <title>Tutorio</title>
 </head>
 
@@ -41,35 +44,37 @@ $result = $conn->query($sql);
                 if (isset($_SESSION['uname'])) {
                     echo '<li><a class="menu__item" href="./profile.php">' . $name . '</a></li>';
                     echo '<li><a class="menu__item" href="./logout.php">Logout</a></li>';
+                } else {
+                    echo '<li><a class="menu__item" href="./tutorlogin.php">Sign IN as tutor</a></li>';
                 }
                 ?>
             </ul>
         </div>
     </div>
 
-    <div class="list">
-        <table>
+    <table>
+        <tr>
+            <h2>Students</h2>
+        </tr>
+        <t>
+            <th>Student Name</th>
+            <th>Student Phone</th>
+            <th>Gender</th>
+            <th>Country</th>
+        </t>
+        <?php
+        while ($rows = mysqli_fetch_assoc($result)) {
+        ?>
             <tr>
-                <th><h1>Students</h1></th>
+                <td><?php echo $rows['First_Name'] . "" . $rows['Last_Name']; ?></td>
+                <td><?php echo $rows['Phone_Number'] ?></td>
+                <td><?php echo $rows['Gender'] ?></td>
+                <td><?php echo $rows['Country'] ?></td>
             </tr>
-            <t>
-                <th>NAme</th>
-                <th>course</th>
-
-            </t>
-            <?php 
-            while($rows = mysqli_fetch_assoc($result)){
-            }
-            ?>
-            <tr>
-                <td><?php echo $row['ID']; ?></td>
-                <td><?php echo $row['ID']; ?></td>
-                <td><?php echo $row['ID']; ?></td>
-                <td><?php echo $row['ID']; ?></td>
-                <td><?php echo $row['ID']; ?></td>
-            </tr>
-        </table>
-    </div>
+        <?php
+        }
+        ?>
+    </table>
 
 
 

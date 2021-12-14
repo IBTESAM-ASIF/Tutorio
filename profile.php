@@ -15,9 +15,7 @@
  $age = $row['Age'];
  $gender = $row['Gender'];
  $country = $row['Country'];
- echo $first;
- echo $last;
- echo $gender;
+
 ?>
 
 <!DOCTYPE html>

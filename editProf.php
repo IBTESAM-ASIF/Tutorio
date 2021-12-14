@@ -5,7 +5,12 @@ session_start();
 if (isset($_SESSION['uname'])) {
     $name = $_SESSION['uname'];
   }
-  
+// 
+
+
+
+
+// 
 if (isset($_POST['submit'])) {
     $first = $_POST['first'];
     $last = $_POST['last'];
