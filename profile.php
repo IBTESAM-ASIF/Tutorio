@@ -1,22 +1,24 @@
-<!-- 
-// include 'connection.php';
-// session_start();
+<?php
+ include 'connection.php';
+ session_start();
 
-// if (isset($_SESSION['uname'])) {
-//     $name = $_SESSION['uname'];
-// }
+ if (isset($_SESSION['uname'])) {
+     $name = $_SESSION['uname'];
+ }
 
-// $sql_query = "select * from student where Email ='" . $name . "'";
-// $result = mysqli_query($con, $sql_query);
-// $row = mysqli_fetch_array($result);
-// $first = $row['First_Name'];
-// $last = $row['Last_Name'];
-// $number = $row['Phone_Number'];
-// $age = $row['Age'];
-// $gender = $row['Gender'];
-// $country = $row['Country'];
-
-//  -->
+ $sql_query = "select * from student where Email ='" . $name . "'";
+ $result = mysqli_query($con, $sql_query);
+ $row = mysqli_fetch_array($result);
+ $first = $row['First_Name'];
+ $last = $row['Last_Name'];
+ $number = $row['Phone_Number'];
+ $age = $row['Age'];
+ $gender = $row['Gender'];
+ $country = $row['Country'];
+ echo $first;
+ echo $last;
+ echo $gender;
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,6 +37,11 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css'>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body{
+            background: linear-gradient(to bottom, #0d2d40, #0c0c0c);
+        }
+    </style>
     <title>Tutorio | Login</title>
 </head>
 
@@ -71,7 +78,7 @@
                     <div class="card shadow-sm">
                         <div class="card-header bg-transparent text-center">
                             <img class="profile_img" src="./img/team2.jpg" alt="pic">
-                            <h3>Ishmam Ahasan Samin</h3>
+                            <h3><?php echo strtoupper($first ." ". $last);?></h3>
                         </div>
                         <div class="card-body">
                             <p class="mb-0"><strong class="pr-1">Student ID:</strong>321000001</p>
@@ -100,12 +107,12 @@
                                 <tr>
                                     <th width="30%">Gender</th>
                                     <td width="2%">:</td>
-                                    <td>Male</td>
+                                    <td><?php echo strtoupper($gender);?></td>
                                 </tr>
                                 <tr>
-                                    <th width="30%">Religion</th>
+                                    <th width="30%">Country</th>
                                     <td width="2%">:</td>
-                                    <td>Group</td>
+                                    <td><?php echo strtoupper($country);?></td>
                                 </tr>
                                 <tr>
                                     <th width="30%">blood</th>
