@@ -23,8 +23,8 @@ if (isset($_SESSION['uname'])) {
   <title>Tutorio</title>
 </head>
 
-<body>
-  <div id="cover"></div>
+<body id="cover">
+  <div ></div>
   <div class="nav">
     <div class="hamburger-menu">
       <input id="menu__toggle" type="checkbox" />

@@ -6,10 +6,8 @@ if (isset($_SESSION['uname'])) {
   $name = $_SESSION['uname'];
 }
 
-// fetch data from database
-
-
-
+$query = "select * from tutor";
+$result = mysqli_query($con, $query);
 
 ?>
 
@@ -27,8 +25,7 @@ if (isset($_SESSION['uname'])) {
   <title>Tutorio</title>
 </head>
 
-<body>
-  <div id="cover"></div>
+<body id="cover">
   <div class="nav">
     <div class="hamburger-menu">
       <input id="menu__toggle" type="checkbox" />
@@ -52,33 +49,39 @@ if (isset($_SESSION['uname'])) {
       </ul>
     </div>
   </div>
-
-  <table border="2">
+  <!-- <?php echo $name ?> -->
+  <table class="find">
     <tr>
-      <td>Sr.No.</td>
-      <td>Full Name</td>
-      <td>Age</td>
+      <th colspan="10">
+        <h2>Tutors</h2>
+      </th>
     </tr>
-
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Phone Number</th>
+      <th>Gender</th>
+      <th>Country</th>
+      <th>Description</th>
+      <th>Language</th>
+      <th>Fee</th>
+      <th>Source</th>
+    </tr>
     <?php
-
-    $sql = mysqli_query($con, "select * from tutor");
-
-    if ($con->query($sql) == true) {
-      header("Location: ./findtutors.php");
-    } else {
-      echo "error, $sql <br> $con->error()";
-    }
-    
-    while ($data = mysqli_fetch_array($sql)) {
+    while ($rows = mysqli_fetch_assoc($result)) {
     ?>
       <tr>
-        <td><?php echo $data['First_Name']; ?></td>
-        <td><?php echo $data['Last_Name']; ?></td>
-        <td><?php echo $data['Phone_Number']; ?></td>
-        <td><?php echo $data['Age']; ?></td>
-        <td><?php echo $data['Gender']; ?></td>
-        <td><?php echo $data['Country']; ?></td>
+        <td style="padding: 0;"><img src="uploads/<?php echo $rows['imageUpload'] ?>" style="height: 60px; width: 100px"></td>
+        <td><?php echo $rows['first'] . " " . $rows['last']; ?></td>
+        <td><?php echo $rows['age'] ?></td>
+        <td><?php echo $rows['phone'] ?></td>
+        <td><?php echo $rows['gender'] ?></td>
+        <td><?php echo $rows['country'] ?></td>
+        <td><?php echo $rows['description'] ?></td>
+        <td><?php echo $rows['language'] ?></td>
+        <td><?php echo $rows['fee'] ?></td>
+        <td><?php echo $rows['source'] ?></td>
       </tr>
     <?php
     }

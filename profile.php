@@ -43,7 +43,7 @@
     <title>Tutorio | Login</title>
 </head>
 
-<body>
+<body id="cover">
 
     <div class="nav">
         <div class="hamburger-menu">
@@ -128,6 +128,9 @@
                         <div class="card-body pt-0">
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                         </div>
+                    </div>
+                    <div class="editProf">
+                        <a href="editProf.php"><button class="btn btn-primary">Edit Profile</button></a>
                     </div>
                 </div>
             </div>

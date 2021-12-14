@@ -5,12 +5,7 @@ session_start();
 if (isset($_SESSION['uname'])) {
     $name = $_SESSION['uname'];
   }
-// 
 
-
-
-
-// 
 if (isset($_POST['submit'])) {
     $first = $_POST['first'];
     $last = $_POST['last'];
@@ -22,47 +17,24 @@ if (isset($_POST['submit'])) {
     $language = $_POST['language'];
     $fee = $_POST['fee'];
     $source = $_POST['source'];
-    // $username = $_POST['username'];
     $password = $_POST['password'];
-    // $image = $_POST['image'];
 
-//{    // $statusMsg = '';
-    // $targetDir = "uploads/";
-    // $fileName = basename($_FILES["file"]["name"]);
-    // $targetFilePath = $targetDir . $fileName;
-    // $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
+    $target_dir = "uploads/";
+    $target_file = $target_dir . basename($_FILES["imageUpload"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
-    // $allowTypes = array('jpg','png','jpeg');
-    // if(in_array($fileType, $allowTypes))
-    // {
-    //     if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath))
-    //     {
-    //         $insert = $db->query("INSERT into tutor (image) VALUES ('$image')");
-    //         if($insert)
-    //         {
-    //             $statusMsg = "The file ".$fileName. " has been uploaded successfully.";
-    //         }
-    //         else
-    //         {
-    //             $statusMsg = "File upload failed, please try again.";
-    //         } 
-    //     }
-    //     else
-    //     {
-    //         $statusMsg = "Sorry, there was an error uploading your file.";
-    //     }
-    // }
-    // else
-    // {
-    //     $statusMsg = 'Sorry, only JPG, JPEG & PNG files are allowed to upload.';
-    // }
+    if (move_uploaded_file($_FILES["imageUpload"]["tmp_name"], $target_file)) {
+        echo "The file ". basename( $_FILES["imageUpload"]["name"]). " has been uploaded.";
+    } else {
+        echo "Sorry, there was an error uploading your file.";
+    }
+
+    $image=basename( $_FILES["imageUpload"]["name"],".jpg"); // used to store the filename in a variable
+
+    $sql = "UPDATE tutor SET first='$first', last='$last', age='$age', phone='$phone', gender='$gender', country='$country', description='$description', language='$language', fee='$fee', source='$source', password='$password', imageUpload='$image' where email='$name';";
+
     
-    // echo $statusMsg;
-//}    
-
-//    $sql = "UPDATE 'tutor' SET 'first'='$first', 'last'='$last', `age`='$age', `phone`='$phone', `gender`='$gender', `country`='$country', `description`='$description', `language`='$language', `fee`='$fee', `source`='$source', `password`='$password'  WHERE username='$name'";
-    $sql = "UPDATE tutor SET first='$first', last='$last', age='$age', phone='$phone', gender='$gender', country='$country', description='$description', language='$language', fee='$fee', source='$source', password='$password' where username='$name';";
-//    $sql = "INSERT INTO `tutor` (`first`, `last`, `age`, `phone`, `gender`, `country`, `description`, `language`, `fee`, `source`, `username`, `password`) VALUES ('$first', '$last', '$age', '$phone', '$gender', '$country', '$description', '$language', '$fee', '$source', '$username', '$password')";
 
     if ($con->query($sql) == true) {
         header("Location: home.php");
@@ -90,51 +62,51 @@ if (isset($_POST['submit'])) {
 <body class="align">
     <div class="grid">
         <h1>Edit Profile</h1>
-        <form action="editProf.php" method="POST" class="form login">
+        <form action="editProf.php" method="POST" class="form login" enctype='multipart/form-data'>
 
             <div class="form__field">
                 <label id="login__username" class="form__input" for="upload">Upload Your Picture</label><br>
-                <input id="login__username" type="file" name="image" class="form__input" placeholder="Picture Upload" accept=".png,.jpeg,.jpg" required>
+                <input id="imageUpload" type="file" name="imageUpload" class="form__input" placeholder="Picture Upload" accept=".png,.jpeg,.jpg" required>
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="first" class="form__input" placeholder="First Name" required>
+                <input id="login__username" type="text" name="first" class="form__input" placeholder="First Name" value="<?php echo $first?>" required>
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="last" class="form__input" placeholder="Last Name" required>
+                <input id="login__username" type="text" name="last" class="form__input" placeholder="Last Name" value="<?php echo $last?>" required>
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="age" class="form__input" placeholder="age" required>
+                <input id="login__username" type="text" name="age" class="form__input" placeholder="age" value="<?php echo $age?>" required>
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="phone" class="form__input" placeholder="phone" required>
+                <input id="login__username" type="text" name="phone" class="form__input" placeholder="phone" value="<?php echo $phone?>" required>
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="gender" class="form__input" placeholder="gender" required>
+                <input id="login__username" type="text" name="gender" class="form__input" placeholder="gender" value="<?php echo $gender?>" required>
             </div>
 
             <div class="form__field">
-                <input id="login__password" type="text" name="country" class="form__input" placeholder="country" required>
+                <input id="login__password" type="text" name="country" class="form__input" placeholder="country" value="<?php echo $country?>" required>
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="description" class="form__input" placeholder="Description" required>
+                <input id="login__username" type="text" name="description" class="form__input" placeholder="Description" value="<?php echo $description?>" required>
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="language" class="form__input" placeholder="Language" required>
+                <input id="login__username" type="text" name="language" class="form__input" placeholder="Language" value="<?php echo $language?>" required>
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="fee" class="form__input" placeholder="fee" required>
+                <input id="login__username" type="text" name="fee" class="form__input" placeholder="fee" value="<?php echo $fee?>" required>
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="online/onsite" class="form__input" placeholder="Online/Onsite" required>
+                <input id="login__username" type="text" name="source" class="form__input" placeholder="Online/Onsite" value="<?php echo $source?>" required>
             </div>
 <!-- 
             <div class="form__field">

@@ -4,3 +4,15 @@ body{
     padding: 0;
     font-family: 'Merriweather', serif;
 }
+
+.find {
+    margin: 50px auto;
+    border: 2px solid black;
+    padding: 15px;
+    background-color: steelblue;
+}
+
+.find tr, .find th, .find td {
+    border: 2px solid black;
+    padding: 20px;
+}
