@@ -17,10 +17,10 @@ h1 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-#cover {
+/* #cover {
     height: 100vh;
     background-image: url(../img/pexels-startup-stock-photos-7096.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-}
+} */

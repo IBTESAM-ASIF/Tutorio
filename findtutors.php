@@ -6,7 +6,7 @@ if (isset($_SESSION['uname'])) {
   $name = $_SESSION['uname'];
 }
 
-$query = "select * from tutor";
+$query = "select * from tutor t join courses c on t.email = c.teahcerEmail join subject s on c.subID = s.subID WHERE t.email = 'owais';";
 $result = mysqli_query($con, $query);
 
 ?>
@@ -52,36 +52,38 @@ $result = mysqli_query($con, $query);
   <!-- <?php echo $name ?> -->
   <table class="find">
     <tr>
-      <th colspan="10">
+      <th colspan="20">
         <h2>Tutors</h2>
       </th>
     </tr>
     <tr>
       <th>Image</th>
       <th>Name</th>
-      <th>Age</th>
-      <th>Phone Number</th>
+      <th>Domain</th>
+      <th>Subject</th>
       <th>Gender</th>
       <th>Country</th>
-      <th>Description</th>
       <th>Language</th>
       <th>Fee</th>
       <th>Source</th>
+      <th>Book</th>
     </tr>
     <?php
     while ($rows = mysqli_fetch_assoc($result)) {
     ?>
       <tr>
         <td style="padding: 0;"><img src="uploads/<?php echo $rows['imageUpload'] ?>" style="height: 60px; width: 100px"></td>
-        <td><?php echo $rows['first'] . " " . $rows['last']; ?></td>
-        <td><?php echo $rows['age'] ?></td>
-        <td><?php echo $rows['phone'] ?></td>
-        <td><?php echo $rows['gender'] ?></td>
-        <td><?php echo $rows['country'] ?></td>
-        <td><?php echo $rows['description'] ?></td>
+        <td><?php echo strtoupper($rows['first']) . " " . strtoupper($rows['last']); ?></td>
+        <td><?php echo $rows['domain'] ?></td>s
+        <td><?php echo strtoupper($rows['description']) ?></td>
+        <td><?php echo strtoupper($rows['gender']) ?></td>
+        <td><?php echo strtoupper($rows['country']) ?></td>
         <td><?php echo $rows['language'] ?></td>
         <td><?php echo $rows['fee'] ?></td>
         <td><?php echo $rows['source'] ?></td>
+        <form action="" method="post">
+        <td><button>Buy This Course</button></td>
+        </form>
       </tr>
     <?php
     }

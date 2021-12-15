@@ -15,6 +15,7 @@
  $age = $row['Age'];
  $gender = $row['Gender'];
  $country = $row['Country'];
+ $email = $row['Email'];
 
 ?>
 
@@ -79,8 +80,8 @@
                             <h3><?php echo strtoupper($first ." ". $last);?></h3>
                         </div>
                         <div class="card-body">
-                            <p class="mb-0"><strong class="pr-1">Student ID:</strong>321000001</p>
-                            <p class="mb-0"><strong class="pr-1">Class:</strong>4</p>
+                            <p class="mb-0"><strong class="pr-1">Student Email: </strong><?php echo $email?></p>
+                            <p class="mb-0"><strong class="pr-1">Phone Number: </strong><?php echo $number?></p>
                             <p class="mb-0"><strong class="pr-1">Section:</strong>A</p>
                         </div>
                     </div>

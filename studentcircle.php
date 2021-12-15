@@ -5,9 +5,7 @@ session_start();
 if (isset($_SESSION['uname'])) {
     $name = $_SESSION['uname'];
 }
-$query = "select * from tutor t join teacher_student ts on t.email = ts.teacherEmail join student s on ts.studentEmail = s.Email where t.email='" .$uname. "'";
-// $query = "select * from tutor t join teacher_student ts on t.email = ts.teacherEmail join student s on ts.studentEmail = s.Email where t.email='owais'";
-// select * from tutor,teacher_student,student where tutor.email = teacher_student.teacherEmail and teacher_student.studentEmail = student.Email;
+$query = "select * from tutor t join teacher_student ts on t.email = ts.teacherEmail join student s on ts.studentEmail = s.Email where t.email='" .$name. "'";
 $result = mysqli_query($con, $query);
 
 ?>
@@ -36,9 +34,9 @@ $result = mysqli_query($con, $query);
                 <span></span>
             </label>
             <ul class="menu__box">
-                <li><a class="menu__item" href="#">Home</a></li>
-                <li><a class="menu__item" href="#">My Lectures</a></li>
-                <li><a class="menu__item" href="./Aboutus.php">Student Circle</a></li>
+                <li><a class="menu__item" href="./home.php">Home</a></li>
+                <li><a class="menu__item" href="./mylecture.php">My Lectures</a></li>
+                <li><a class="menu__item" href="#">Student Circle</a></li>
 
                 <?php
                 if (isset($_SESSION['uname'])) {

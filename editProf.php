@@ -1,10 +1,23 @@
 <?php
-include("connection.php");
+include 'connection.php';
 session_start();
 
 if (isset($_SESSION['uname'])) {
     $name = $_SESSION['uname'];
-  }
+}
+
+$sql_query = "select * from student where Email ='" . $name . "'";
+$result = mysqli_query($con, $sql_query);
+$row = mysqli_fetch_array($result);
+$first = $row['First_Name'];
+$last = $row['Last_Name'];
+$number = $row['Phone_Number'];
+$age = $row['Age'];
+$gender = $row['Gender'];
+$country = $row['Country'];
+$email = $row['Email'];
+$Password = $row['Password'];
+
 
 if (isset($_POST['submit'])) {
     $first = $_POST['first'];
@@ -13,10 +26,7 @@ if (isset($_POST['submit'])) {
     $phone = $_POST['phone'];
     $gender = $_POST['gender'];
     $country = $_POST['country'];
-    $description = $_POST['description'];
-    $language = $_POST['language'];
-    $fee = $_POST['fee'];
-    $source = $_POST['source'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
 
     $target_dir = "uploads/";
@@ -32,7 +42,7 @@ if (isset($_POST['submit'])) {
 
     $image=basename( $_FILES["imageUpload"]["name"],".jpg"); // used to store the filename in a variable
 
-    $sql = "UPDATE tutor SET first='$first', last='$last', age='$age', phone='$phone', gender='$gender', country='$country', description='$description', language='$language', fee='$fee', source='$source', password='$password', imageUpload='$image' where email='$name';";
+    $sql = "UPDATE student SET First_Name='$first', Last_Name='$last', Phone_Number='$phone', Age='$age', Gender='$gender', Country='$country', Email='$email', Password='$password', imageUpload='$image' where email='$name';";
 
     
 
@@ -66,62 +76,48 @@ if (isset($_POST['submit'])) {
 
             <div class="form__field">
                 <label id="login__username" class="form__input" for="upload">Upload Your Picture</label><br>
-                <input id="imageUpload" type="file" name="imageUpload" class="form__input" placeholder="Picture Upload" accept=".png,.jpeg,.jpg" required>
+                <input id="imageUpload" type="file" name="imageUpload" class="form__input" placeholder="Picture Upload" accept=".png,.jpeg,.jpg">
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="first" class="form__input" placeholder="First Name" value="<?php echo $first?>" required>
+                <label for="">First Name:</label>
+                <input id="login__username" type="text" name="first" class="form__input" value="<?php echo $first?>" required>
             </div>
 
             <div class="form__field">
+            <label for="">Last Name:</label>
                 <input id="login__username" type="text" name="last" class="form__input" placeholder="Last Name" value="<?php echo $last?>" required>
             </div>
 
             <div class="form__field">
+            <label for="">Age:</label>
                 <input id="login__username" type="text" name="age" class="form__input" placeholder="age" value="<?php echo $age?>" required>
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="phone" class="form__input" placeholder="phone" value="<?php echo $phone?>" required>
+            <label for="">Phone Number:</label>
+                <input id="login__username" type="text" name="phone" class="form__input" placeholder="phone" value="<?php echo $number?>" required>
             </div>
 
             <div class="form__field">
+            <label for="">Gender:</label>
                 <input id="login__username" type="text" name="gender" class="form__input" placeholder="gender" value="<?php echo $gender?>" required>
             </div>
 
             <div class="form__field">
+            <label for="">Country:</label>
                 <input id="login__password" type="text" name="country" class="form__input" placeholder="country" value="<?php echo $country?>" required>
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="description" class="form__input" placeholder="Description" value="<?php echo $description?>" required>
+            <label for="">Email:</label>
+                <input id="login__username" type="text" name="email" class="form__input" placeholder="Description" value="<?php echo $email?>" required>
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="language" class="form__input" placeholder="Language" value="<?php echo $language?>" required>
+            <label for="">Password:</label>
+                <input id="login__username" type="text" name="password" class="form__input" placeholder="Language" value="<?php echo $Password?>" required>
             </div>
-
-            <div class="form__field">
-                <input id="login__username" type="text" name="fee" class="form__input" placeholder="fee" value="<?php echo $fee?>" required>
-            </div>
-
-            <div class="form__field">
-                <input id="login__username" type="text" name="source" class="form__input" placeholder="Online/Onsite" value="<?php echo $source?>" required>
-            </div>
-<!-- 
-            <div class="form__field">
-                <input id="login__username" type="text" name="username" class="form__input" placeholder="username" required>
-            </div> -->
-
-            <div class="form__field">
-                <input id="login__username" type="text" name="password" class="form__input" placeholder="password" required>
-            </div>
-
-            <div class="form__field">
-                <label id="login__username" class="form__input" for="upload">Upload Your resume here</label><br>
-                <input id="login__username" type="file" name="CV" class="form__input" placeholder="Resume upload" accept=".pdf,.doc" required>
-            </div>
-
 
             <div class="form__field">
                 <input type="submit" name="submit" value="Update">
