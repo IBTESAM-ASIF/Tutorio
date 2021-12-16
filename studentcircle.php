@@ -6,7 +6,9 @@ if (isset($_SESSION['uname'])) {
     $name = $_SESSION['uname'];
 }
 $query = "select * from tutor t join teacher_student ts on t.email = ts.teacherEmail join student s on ts.studentEmail = s.Email where t.email='" .$name. "'";
-$result = mysqli_query($con, $query);
+// $query = "select * from tutor t join teacher_student ts on t.email = ts.teacherEmail join student s on ts.studentEmail = s.Email where t.email='owais'";
+// select * from tutor,teacher_student,student where tutor.email = teacher_student.teacherEmail and teacher_student.studentEmail = student.Email;
+
 
 ?>
 
@@ -61,7 +63,9 @@ $result = mysqli_query($con, $query);
             <th>Country</th>
         </t>
         <?php
-        while ($rows = mysqli_fetch_assoc($result)) {
+        $result = mysqli_query($con, $query);
+        if (mysqli_num_rows($result) > 0) {
+            while ($rows = mysqli_fetch_assoc($result)) {
         ?>
             <tr>
                 <td><?php echo $rows['First_Name'] . "" . $rows['Last_Name']; ?></td>
@@ -71,6 +75,10 @@ $result = mysqli_query($con, $query);
             </tr>
         <?php
         }
+    }
+    else{
+        echo "0 Results";
+    }
         ?>
     </table>
 
