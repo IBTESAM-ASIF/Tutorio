@@ -1,34 +1,33 @@
-<?php
+<?php 
 include 'connection.php';
 session_start();
 
 if (isset($_SESSION['uname'])) {
     $name = $_SESSION['uname'];
 }
-$query = "select * from tutor t join teacher_student ts on t.email = ts.teacherEmail join student s on ts.studentEmail = s.Email where t.email='" .$name. "'";
-// $query = "select * from tutor t join teacher_student ts on t.email = ts.teacherEmail join student s on ts.studentEmail = s.Email where t.email='owais'";
-// select * from tutor,teacher_student,student where tutor.email = teacher_student.teacherEmail and teacher_student.studentEmail = student.Email;
-
-
+$sql_query = "select * from subject s join teacher_course tc on s.subID = tc.subID where tc.teahcerEmail ='" . $name . "'";
+// $result = mysqli_query($con, $sql_query);
+// $row = mysqli_fetch_array($result);
+// $subject = $row['description'];
+// $domain = $row['domain'];
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/nav_style.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/slide.css">
-    <link rel="stylesheet" href="css/home.css">
-
-    <title>Tutorio</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/slide.css">
+  <link rel="stylesheet" href="css/home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
+    <title>Document</title>
 </head>
-
 <body>
-    <div id="cover"></div>
+
+<div id="cover"></div>
     <div class="nav">
         <div class="hamburger-menu">
             <input id="menu__toggle" type="checkbox" />
@@ -52,40 +51,31 @@ $query = "select * from tutor t join teacher_student ts on t.email = ts.teacherE
             </ul>
         </div>
     </div>
-
-    <table>
+<table style="margin: auto;">
         <tr>
-            <h2>Students</h2>
+            <h2 style="text-align: center; padding:5px">Students</h2>
         </tr>
         <t>
-            <th>Student Name</th>
-            <th>Student Phone</th>
-            <th>Gender</th>
-            <th>Country</th>
+            <th>Course Name</th>
+            <th>Course Domain</th>
         </t>
         <?php
-        $result = mysqli_query($con, $query);
+        $result = mysqli_query($con, $sql_query);
         if (mysqli_num_rows($result) > 0) {
             while ($rows = mysqli_fetch_assoc($result)) {
         ?>
             <tr>
-                <td><?php echo $rows['First_Name'] . "" . $rows['Last_Name']; ?></td>
-                <td><?php echo $rows['Phone_Number'] ?></td>
-                <td><?php echo $rows['Gender'] ?></td>
-                <td><?php echo $rows['Country'] ?></td>
+                <td><?php echo $rows['description']; ?></td>
+                <td><?php echo $rows['domain'] ?></td>
             </tr>
         <?php
         }
     }
     else{
-        echo "0 Results";
+        echo "No COurses Uploaded yet";
     }
         ?>
     </table>
 
-
-
-    </script>
 </body>
-
 </html>

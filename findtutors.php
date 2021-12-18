@@ -6,9 +6,8 @@ if (isset($_SESSION['uname'])) {
   $name = $_SESSION['uname'];
 }
 
-$query = "select * from tutor t join courses c on t.email = c.teahcerEmail join subject s on c.subID = s.subID WHERE t.email = 'owais';";
-$result = mysqli_query($con, $query);
-
+$sql = "select * from tutor t join teacher_course tc on t.email = tc.teahcerEmail join subject s on tc.subID = s.subID";
+$result = $con->query($sql) or die($con->error);
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +48,6 @@ $result = mysqli_query($con, $query);
       </ul>
     </div>
   </div>
-  <!-- <?php echo $name ?> -->
   <table class="find">
     <tr>
       <th colspan="20">
@@ -70,6 +68,7 @@ $result = mysqli_query($con, $query);
     </tr>
     <?php
     while ($rows = mysqli_fetch_assoc($result)) {
+      $id = $rows['subID'];
     ?>
       <tr>
         <td style="padding: 0;"><img src="uploads/<?php echo $rows['imageUpload'] ?>" style="height: 60px; width: 100px"></td>
@@ -81,8 +80,8 @@ $result = mysqli_query($con, $query);
         <td><?php echo $rows['language'] ?></td>
         <td><?php echo $rows['fee'] ?></td>
         <td><?php echo $rows['source'] ?></td>
-        <form action="" method="post">
-        <td><button>Buy This Course</button></td>
+        <form action="./addTutor.php" method="post">
+        <td><button type="submit" name="course_buy">Buy This Course</button></td>
         </form>
       </tr>
     <?php

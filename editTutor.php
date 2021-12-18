@@ -6,17 +6,19 @@ if (isset($_SESSION['uname'])) {
     $name = $_SESSION['uname'];
 }
 
-$sql_query = "select * from student where Email ='" . $name . "'";
+$sql_query = "select * from tutor where Email ='" . $name . "'";
 $result = mysqli_query($con, $sql_query);
 $row = mysqli_fetch_array($result);
-$first = $row['First_Name'];
-$last = $row['Last_Name'];
-$number = $row['Phone_Number'];
-$age = $row['Age'];
-$gender = $row['Gender'];
-$country = $row['Country'];
-$email = $row['Email'];
-$Password = $row['Password'];
+$first = $row['first'];
+$last = $row['last'];
+$number = $row['phone'];
+$age = $row['age'];
+$gender = $row['gender'];
+$country = $row['country'];
+$description = ['description'];
+$language = ['language'];
+$fee = ['fee'];
+$email = $row['email'];
 
 
 if (isset($_POST['submit'])) {
@@ -26,7 +28,11 @@ if (isset($_POST['submit'])) {
     $phone = $_POST['phone'];
     $gender = $_POST['gender'];
     $country = $_POST['country'];
-    $email = $_POST['email'];
+    $description = $_POST['description'];
+    $language = $_POST['language'];
+    $fee = $_POST['fee'];
+    $source = $_POST['source'];
+    $username = $_POST['username'];
     $password = $_POST['password'];
 
     $target_dir = "uploads/";
@@ -47,7 +53,7 @@ if (isset($_POST['submit'])) {
     
 
     if ($con->query($sql) == true) {
-        header("Location: home.php");
+        header("Location: tutorhome.php");
     } else {
         echo "error, $sql <br> $con->error()";
     }
@@ -107,6 +113,27 @@ if (isset($_POST['submit'])) {
             <div class="form__field">
             <label for="">Country:</label>
                 <input id="login__password" type="text" name="country" class="form__input" placeholder="country" value="<?php echo $country?>" required>
+            </div>
+
+
+            <div class="form__field">
+            <label for="">description:</label>
+                <input id="login__username" type="text" name="description" class="form__input" placeholder="description" value="<?php echo $description?>" required>
+            </div>
+
+            <div class="form__field">
+            <label for="">language:</label>
+                <input id="login__username" type="text" name="language" class="form__input" placeholder="language" value="<?php echo $language?>" required>
+            </div>
+
+            <div class="form__field">
+            <label for="">fee:</label>
+                <input id="login__username" type="text" name="fee" class="form__input" placeholder="fee" value="<?php echo $fee?>" required>
+            </div>
+
+            <div class="form__field">
+            <label for="">source:</label>
+                <input id="login__username" type="text" name="source" class="form__input" placeholder="source" value="<?php echo $source?>" required>
             </div>
 
             <div class="form__field">

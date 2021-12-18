@@ -1,30 +1,23 @@
-<?php
-include ('connection.php');
-session_start();
-
-if (isset($_SESSION['uname'])) {
-    $name = $_SESSION['uname'];
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/nav_style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/nav_style.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/slide.css">
   <link rel="stylesheet" href="css/home.css">
-    <!-- <link rel="stylesheet" href="home.css"> -->
-    <title>Tutorio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
+    <style>
+        .container{
+            align-items: center;
+        }
+    </style>
+    <title>Tutorio | Signup</title>
 </head>
-
-<body id="cover">
-    <div></div>
+<body>
+    <div id="cover"></div>
     <div class="nav">
         <div class="hamburger-menu">
             <input id="menu__toggle" type="checkbox" />
@@ -32,7 +25,7 @@ if (isset($_SESSION['uname'])) {
                 <span></span>
             </label>
             <ul class="menu__box">
-                <li><a class="menu__item" href="#">Home</a></li>
+            <li><a class="menu__item" href="#">Home</a></li>
                 <li><a class="menu__item" href="./mylectures.html">My Lectures</a></li>
                 <li><a class="menu__item" href="./studentcircle.php">Student Circle</a></li>
 
@@ -48,10 +41,9 @@ if (isset($_SESSION['uname'])) {
             </ul>
         </div>
     </div>
-
-
-
-    </script>
+    <div class="container">
+        <button >Upload New Lecture</button>
+        <button href="./lectures.php">View Your Lectures</button>
+    </div>
 </body>
-
 </html>
