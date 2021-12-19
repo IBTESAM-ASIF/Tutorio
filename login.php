@@ -50,7 +50,7 @@ if (isset($_POST['but_submit'])) {
                 <label for="login__username"><svg class="icon">
                         <use xlink:href="#icon-user"></use>
                     </svg><span class="hidden">Username</span></label>
-                <input autocomplete="username" id="login__username" type="text" name="username" class="form__input"
+                <input autocomplete="username" id="login__username" type="email" name="username" class="form__input"
                     placeholder="Username" required>
             </div>
 

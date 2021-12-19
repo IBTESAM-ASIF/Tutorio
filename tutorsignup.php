@@ -59,7 +59,7 @@ if (isset($_POST['submit'])) {
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="phone" class="form__input" placeholder="phone" required>
+                <input id="login__username" type="tel" name="phone" class="form__input" placeholder="phone" required>
             </div>
 
             <div class="form__field">
@@ -93,7 +93,7 @@ if (isset($_POST['submit'])) {
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="username" class="form__input" placeholder="Email"
+                <input id="login__username" type="email" name="username" class="form__input" placeholder="Email"
                     required>
             </div>
 

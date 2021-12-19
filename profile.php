@@ -82,7 +82,6 @@
                         <div class="card-body">
                             <p class="mb-0"><strong class="pr-1">Student Email: </strong><?php echo $email?></p>
                             <p class="mb-0"><strong class="pr-1">Phone Number: </strong><?php echo $number?></p>
-                            <p class="mb-0"><strong class="pr-1">Section:</strong>A</p>
                         </div>
                     </div>
                 </div>
@@ -94,14 +93,9 @@
                         <div class="card-body pt-0">
                             <table class="table table-bordered">
                                 <tr>
-                                    <th width="30%">Roll</th>
+                                    <th width="30%">Age</th>
                                     <td width="2%">:</td>
-                                    <td>125</td>
-                                </tr>
-                                <tr>
-                                    <th width="30%">Academic Year </th>
-                                    <td width="2%">:</td>
-                                    <td>2020</td>
+                                    <td><?php echo $age?></td>
                                 </tr>
                                 <tr>
                                     <th width="30%">Gender</th>
@@ -113,23 +107,11 @@
                                     <td width="2%">:</td>
                                     <td><?php echo strtoupper($country);?></td>
                                 </tr>
-                                <tr>
-                                    <th width="30%">blood</th>
-                                    <td width="2%">:</td>
-                                    <td>B+</td>
-                                </tr>
                             </table>
                         </div>
                     </div>
                     <div style="height: 26px"></div>
-                    <div class="card shadow-sm">
-                        <div class="card-header bg-transparent border-0">
-                            <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Other Information</h3>
-                        </div>
-                        <div class="card-body pt-0">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        </div>
-                    </div>
+                    
                     <div class="editProf">
                         <a href="editProf.php"><button class="btn btn-primary">Edit Profile</button></a>
                     </div>

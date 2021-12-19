@@ -52,7 +52,7 @@ if (isset($_POST['submit'])) {
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="phone" class="form__input" placeholder="phone" required>
+                <input id="login__username" type="tel" name="phone" class="form__input" placeholder="phone" required>
             </div>
 
             <div class="form__field">
@@ -60,7 +60,12 @@ if (isset($_POST['submit'])) {
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="gender" class="form__input" placeholder="gender" required>
+                <label for="gender">Gender</label>
+                <select name="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="other">other</option>
+                </select>
             </div>
 
             <div class="form__field">
@@ -69,7 +74,7 @@ if (isset($_POST['submit'])) {
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="username" class="form__input" placeholder="username Name"
+                <input id="login__username" type="email" name="username" class="form__input" placeholder="username Name"
                     required>
             </div>
 
