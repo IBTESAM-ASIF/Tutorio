@@ -1,0 +1,78 @@
+<?php
+include './connection.php';
+include './generateSub.php';
+session_start();
+if (isset($_SESSION['uname'])) {
+    $name = $_SESSION['uname'];
+}
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/nav_style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/slide.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="page.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
+    <style>
+        .section {
+            margin-top: 15%;
+            text-align: center;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="nav">
+        <div class="hamburger-menu">
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+                <span></span>
+            </label>
+            <ul class="menu__box">
+                <li><a class="menu__item" href="./home.php">Home</a></li>
+                <li><a class="menu__item" href="./mylectures.php">My Lectures</a></li>
+                <li><a class="menu__item" href="./studentcircle.php">Student Circle</a></li>
+
+                <?php
+                if (isset($_SESSION['uname'])) {
+                    echo '<li><a class="menu__item" href="./tutorProfile.php">' . $name . '</a></li>';
+                    echo '<li><a class="menu__item" href="./logout.php">Logout</a></li>';
+                } else {
+                    echo '<li><a class="menu__item" href="./tutorlogin.php">Sign IN as tutor</a></li>';
+                }
+                ?>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Upload Your Lectures Here</h2>
+        <form action="./teach_sub.php" method="POST">
+            <label for="subID">Select Course: </label>
+            <select style="margin: auto;" name="subID" id="subID">
+                <?php
+                for ($i = 0; $i < count($CategoriesList); $i++) {
+                    $tempCatName = str_replace(" ", "+", $CategoriesList[$i]);
+                    echo "<option value=" . $CategoriesList2[$i] . ">" . $CategoriesList[$i] . "</option>";
+                    echo $CategoriesList2[$i];
+                }
+                ?>
+            </select>
+            <br><br>
+            <label for="">Upload your full Lecture Here: </label>
+            <input type="file">
+            <br>
+            <br>
+            <input type="submit" name="submit" value="Submit">
+        </form>
+    </div>
+</body>
+
+</html>

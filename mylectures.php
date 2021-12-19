@@ -1,3 +1,10 @@
+<?php 
+include 'connection.php';
+session_start();
+if (isset($_SESSION['uname'])) {
+    $name = $_SESSION['uname'];
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +33,7 @@
             </label>
             <ul class="menu__box">
             <li><a class="menu__item" href="#">Home</a></li>
-                <li><a class="menu__item" href="./mylectures.html">My Lectures</a></li>
+                <li><a class="menu__item" href="./mylectures.php">My Lectures</a></li>
                 <li><a class="menu__item" href="./studentcircle.php">Student Circle</a></li>
 
                 <?php
@@ -42,8 +49,8 @@
         </div>
     </div>
     <div class="container">
-        <button >Upload New Lecture</button>
-        <button href="./lectures.php">View Your Lectures</button>
+        <a href="./uploadLect.php"><button >Upload New Lecture</button></a>
+        <a href="./lectures.php"><button>View Your Lectures</button></a>
     </div>
 </body>
 </html>

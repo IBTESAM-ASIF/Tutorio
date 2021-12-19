@@ -55,7 +55,7 @@
                 <span></span>
             </label>
             <ul class="menu__box">
-            <li><a class="menu__item" href="#">Home</a></li>
+            <li><a class="menu__item" href="./home.php">Home</a></li>
                 <li><a class="menu__item" href="./mylectures.html">My Lectures</a></li>
                 <li><a class="menu__item" href="./studentcircle.php">Student Circle</a></li>
 

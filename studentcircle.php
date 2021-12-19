@@ -6,9 +6,6 @@ if (isset($_SESSION['uname'])) {
     $name = $_SESSION['uname'];
 }
 $query = "select * from tutor t join teacher_student ts on t.email = ts.teacherEmail join student s on ts.studentEmail = s.Email where t.email='" .$name. "'";
-// $query = "select * from tutor t join teacher_student ts on t.email = ts.teacherEmail join student s on ts.studentEmail = s.Email where t.email='owais'";
-// select * from tutor,teacher_student,student where tutor.email = teacher_student.teacherEmail and teacher_student.studentEmail = student.Email;
-
 
 ?>
 
@@ -23,6 +20,12 @@ $query = "select * from tutor t join teacher_student ts on t.email = ts.teacherE
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/slide.css">
     <link rel="stylesheet" href="css/home.css">
+    <style>
+        .section {
+            margin-top: 15%;
+            text-align: center;
+        }
+    </style>
 
     <title>Tutorio</title>
 </head>
@@ -37,7 +40,7 @@ $query = "select * from tutor t join teacher_student ts on t.email = ts.teacherE
             </label>
             <ul class="menu__box">
             <li><a class="menu__item" href="#">Home</a></li>
-                <li><a class="menu__item" href="./mylectures.html">My Lectures</a></li>
+                <li><a class="menu__item" href="./mylectures.php">My Lectures</a></li>
                 <li><a class="menu__item" href="./studentcircle.php">Student Circle</a></li>
 
                 <?php
@@ -52,10 +55,11 @@ $query = "select * from tutor t join teacher_student ts on t.email = ts.teacherE
             </ul>
         </div>
     </div>
-
-    <table>
+<div class="section">
+    <table style="margin-left: 45%;
+            text-align: center;">
         <tr>
-            <h2>Students</h2>
+            <h2 >Students</h2>
         </tr>
         <t>
             <th>Student Name</th>
@@ -82,6 +86,8 @@ $query = "select * from tutor t join teacher_student ts on t.email = ts.teacherE
     }
         ?>
     </table>
+
+    </div>
 
 
 
