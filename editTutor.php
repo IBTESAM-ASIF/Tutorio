@@ -15,10 +15,12 @@ $number = $row['phone'];
 $age = $row['age'];
 $gender = $row['gender'];
 $country = $row['country'];
-$description = ['description'];
-$language = ['language'];
-$fee = ['fee'];
+$description = $row['description'];
+$language = $row['language'];
+$fee = $row['fee'];
+$source = $row['source'];
 $email = $row['email'];
+$password = $row['password'];
 
 
 if (isset($_POST['submit'])) {
@@ -38,19 +40,19 @@ if (isset($_POST['submit'])) {
     $target_dir = "uploads/";
     $target_file = $target_dir . basename($_FILES["imageUpload"]["name"]);
     $uploadOk = 1;
-    $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+    $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
 
     if (move_uploaded_file($_FILES["imageUpload"]["tmp_name"], $target_file)) {
-        echo "The file ". basename( $_FILES["imageUpload"]["name"]). " has been uploaded.";
+        echo "The file " . basename($_FILES["imageUpload"]["name"]) . " has been uploaded.";
     } else {
         echo "Sorry, there was an error uploading your file.";
     }
 
-    $image=basename( $_FILES["imageUpload"]["name"],".jpg"); // used to store the filename in a variable
+    $image = basename($_FILES["imageUpload"]["name"], ".jpg"); // used to store the filename in a variable
 
     $sql = "UPDATE student SET First_Name='$first', Last_Name='$last', Phone_Number='$phone', Age='$age', Gender='$gender', Country='$country', Email='$email', Password='$password', photo='$image' where email='$name';";
 
-    
+
 
     if ($con->query($sql) == true) {
         header("Location: tutorhome.php");
@@ -87,63 +89,63 @@ if (isset($_POST['submit'])) {
 
             <div class="form__field">
                 <label for="">First Name:</label>
-                <input id="login__username" type="text" name="first" class="form__input" value="<?php echo $first?>" required>
+                <input id="login__username" type="text" name="first" class="form__input" placeholder="First Name" value="<?php echo $first ?>" required>
             </div>
 
             <div class="form__field">
-            <label for="">Last Name:</label>
-                <input id="login__username" type="text" name="last" class="form__input" placeholder="Last Name" value="<?php echo $last?>" required>
+                <label for="">Last Name:</label>
+                <input id="login__username" type="text" name="last" class="form__input" placeholder="Last Name" value="<?php echo $last ?>" required>
             </div>
 
             <div class="form__field">
-            <label for="">Age:</label>
-                <input id="login__username" type="text" name="age" class="form__input" placeholder="age" value="<?php echo $age?>" required>
+                <label for="">Age:</label>
+                <input id="login__username" type="text" name="age" class="form__input" placeholder="Age" value="<?php echo $age ?>" required>
             </div>
 
             <div class="form__field">
-            <label for="">Phone Number:</label>
-                <input id="login__username" type="text" name="phone" class="form__input" placeholder="phone" value="<?php echo $number?>" required>
+                <label for="">Phone Number:</label>
+                <input id="login__username" type="tel" name="phone" class="form__input" placeholder="Phone" value="<?php echo $number ?>" required>
             </div>
 
             <div class="form__field">
-            <label for="">Gender:</label>
-                <input id="login__username" type="text" name="gender" class="form__input" placeholder="gender" value="<?php echo $gender?>" required>
+                <label for="">Gender:</label>
+                <input id="login__username" type="text" name="gender" class="form__input" placeholder="Gender" value="<?php echo $gender ?>" required>
             </div>
 
             <div class="form__field">
-            <label for="">Country:</label>
-                <input id="login__password" type="text" name="country" class="form__input" placeholder="country" value="<?php echo $country?>" required>
+                <label for="">Country:</label>
+                <input id="login__password" type="text" name="country" class="form__input" placeholder="Country" value="<?php echo $country ?>" required>
             </div>
 
 
             <div class="form__field">
-            <label for="">description:</label>
-                <input id="login__username" type="text" name="description" class="form__input" placeholder="description" value="<?php echo $description?>" required>
+                <label for="">Description:</label>
+                <input id="login__username" type="text" name="description" class="form__input" placeholder="Description" value="<?php echo $description ?>" required>
             </div>
 
             <div class="form__field">
-            <label for="">language:</label>
-                <input id="login__username" type="text" name="language" class="form__input" placeholder="language" value="<?php echo $language?>" required>
+                <label for="">Language:</label>
+                <input id="login__username" type="text" name="language" class="form__input" placeholder="Language" value="<?php echo $language ?>" required>
             </div>
 
             <div class="form__field">
-            <label for="">fee:</label>
-                <input id="login__username" type="text" name="fee" class="form__input" placeholder="fee" value="<?php echo $fee?>" required>
+                <label for="">Fee:</label>
+                <input id="login__username" type="text" name="fee" class="form__input" placeholder="Fee" value="<?php echo $fee ?>" required>
             </div>
 
             <div class="form__field">
-            <label for="">source:</label>
-                <input id="login__username" type="text" name="source" class="form__input" placeholder="source" value="<?php echo $source?>" required>
+                <label for="">Source:</label>
+                <input id="login__username" type="text" name="source" class="form__input" placeholder="Source" value="<?php echo $source ?>" required>
             </div>
 
             <div class="form__field">
-            <label for="">Email:</label>
-                <input id="login__username" type="text" name="email" class="form__input" placeholder="Description" value="<?php echo $email?>" required>
+                <label for="">Email:</label>
+                <input id="login__username" type="email" name="email" class="form__input" placeholder="Email" value="<?php echo $email ?>" required>
             </div>
 
             <div class="form__field">
-            <label for="">Password:</label>
-                <input id="login__username" type="text" name="password" class="form__input" placeholder="Language" value="<?php echo $Password?>" required>
+                <label for="">Password:</label>
+                <input id="login__username" type="password" name="password" class="form__input" placeholder="Password" value="<?php echo $password ?>" required>
             </div>
 
             <div class="form__field">
@@ -155,29 +157,28 @@ if (isset($_POST['submit'])) {
 </body>
 
 <body>
-<div class="nav">
-    <div class="hamburger-menu">
-      <input id="menu__toggle" type="checkbox" />
-      <label class="menu__btn" for="menu__toggle">
-        <span></span>
-      </label>
-      <ul class="menu__box">
-        <li><a class="menu__item" href="./home.php">Home</a></li>
-        <li><a class="menu__item" href="./editProf.php">Find Tutors</a></li>
-        <li><a class="menu__item" href="./Aboutus.php">About US</a></li>
-        <li><a class="menu__item" href="./contact.php">Contact US</a></li>
-        <?php
-        if (!isset($_SESSION['uname'])) {
-          echo '<li><a class="menu__item" href="./login.php">Login/Signup</a></li>';
-          echo '<li><a class="menu__item" href="./editProf.php">Signup as Tutor</a></li>';
-        } else {
-          echo '<li><a class="menu__item" href="./editProf.php">' . $name . '</a></li>';
-          echo '<li><a class="menu__item" href="./login.php">Logout</a></li>';
-        }
-        ?>
-      </ul>
+    <div class="nav">
+        <div class="hamburger-menu">
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+                <span></span>
+            </label>
+            <ul class="menu__box">
+                <li><a class="menu__item" href="./tutorhome.php">Home</a></li>
+                <li><a class="menu__item" href="./mylectures.php">My Lectures</a></li>
+                <li><a class="menu__item" href="./studentcircle.php">Student Circle</a></li>
+
+                <?php
+                if (isset($_SESSION['uname'])) {
+                    echo '<li><a class="menu__item" href="./tutorProfile.php">' . $name . '</a></li>';
+                    echo '<li><a class="menu__item" href="./logout.php"><?php session_destroy(); ?>Logout</a></li>';
+                } else {
+                    echo '<li><a class="menu__item" href="./tutorlogin.php">Sign in as tutor</a></li>';
+                }
+                ?>
+            </ul>
+        </div>
     </div>
-  </div>
 </body>
 
 </html>

@@ -97,22 +97,4 @@ if (isset($_POST['submit'])) {
     </div>
 </body>
 
-<body>
-    <div class="nav">
-        <div class="hamburger-menu">
-            <input id="menu__toggle" type="checkbox" />
-            <label class="menu__btn" for="menu__toggle">
-                <span></span>
-            </label>
-            <ul class="menu__box">
-                <li><a class="menu__item" href="./home.php">Home</a></li>
-                <li><a class="menu__item" href="#">Find Tutors</a></li>
-                <li><a class="menu__item" href="./Aboutus.php">About US</a></li>
-                <li><a class="menu__item" href="./contact.php">Contact US</a></li>
-                <li><a class="menu__item" href="./login.php">Login/Signup</a></li>
-            </ul>
-        </div>
-    </div>
-</body>
-
 </html>

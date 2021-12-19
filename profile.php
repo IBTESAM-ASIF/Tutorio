@@ -1,21 +1,22 @@
 <?php
- include 'connection.php';
- session_start();
+include 'connection.php';
+session_start();
 
- if (isset($_SESSION['uname'])) {
-     $name = $_SESSION['uname'];
- }
+if (isset($_SESSION['uname'])) {
+    $name = $_SESSION['uname'];
+}
 
- $sql_query = "select * from student where Email ='" . $name . "'";
- $result = mysqli_query($con, $sql_query);
- $row = mysqli_fetch_array($result);
- $first = $row['First_Name'];
- $last = $row['Last_Name'];
- $number = $row['Phone_Number'];
- $age = $row['Age'];
- $gender = $row['Gender'];
- $country = $row['Country'];
- $email = $row['Email'];
+$sql_query = "select * from student where Email ='" . $name . "'";
+$result = mysqli_query($con, $sql_query);
+$row = mysqli_fetch_array($result);
+$first = $row['First_Name'];
+$last = $row['Last_Name'];
+$number = $row['Phone_Number'];
+$age = $row['Age'];
+$gender = $row['Gender'];
+$country = $row['Country'];
+$email = $row['Email'];
+$image = $row['photo'];
 
 ?>
 
@@ -37,7 +38,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        body{
+        body {
             background: linear-gradient(to bottom, #0d2d40, #0c0c0c);
         }
     </style>
@@ -54,15 +55,13 @@
             </label>
             <ul class="menu__box">
                 <li><a class="menu__item" href="./home.php">Home</a></li>
-                <li><a class="menu__item" href="#">Find Tutors</a></li>
-                <li><a class="menu__item" href="./Aboutus.php">About US</a></li>
-                <li><a class="menu__item" href="./contact.php">Contact US</a></li>
+                <li><a class="menu__item" href="./findtutors.php">Find Tutors</a></li>
                 <?php
                 if (!isset($_SESSION['uname'])) {
                     echo '<li><a class="menu__item" href="./login.php">Login/Signup</a></li>';
                     echo '<li><a class="menu__item" href="./tutorsignup.php">Signup as Tutor</a></li>';
                 } else {
-                    echo '<li><a class="menu__item" href="./editProf.php">' . $name . '</a></li>';
+                    echo '<li><a class="menu__item" href="./profile.php">' . $name . '</a></li>';
                     echo '<li><a class="menu__item" href="./login.php"><?php session_destroy(); ?>Logout</a></li>';
                 }
                 ?>
@@ -76,12 +75,12 @@
                 <div class="col-lg-4">
                     <div class="card shadow-sm">
                         <div class="card-header bg-transparent text-center">
-                            <img class="profile_img" src="./img/team2.jpg" alt="pic">
-                            <h3><?php echo strtoupper($first ." ". $last);?></h3>
+                            <img class="profile_img" src=<?php echo "./uploads/$image" ?> alt="pic">
+                            <h3><?php echo strtoupper($first . " " . $last); ?></h3>
                         </div>
                         <div class="card-body">
-                            <p class="mb-0"><strong class="pr-1">Student Email: </strong><?php echo $email?></p>
-                            <p class="mb-0"><strong class="pr-1">Phone Number: </strong><?php echo $number?></p>
+                            <p class="mb-0"><strong class="pr-1">Student Email: </strong><?php echo $email ?></p>
+                            <p class="mb-0"><strong class="pr-1">Phone Number: </strong><?php echo $number ?></p>
                         </div>
                     </div>
                 </div>
@@ -95,23 +94,23 @@
                                 <tr>
                                     <th width="30%">Age</th>
                                     <td width="2%">:</td>
-                                    <td><?php echo $age?></td>
+                                    <td><?php echo $age ?></td>
                                 </tr>
                                 <tr>
                                     <th width="30%">Gender</th>
                                     <td width="2%">:</td>
-                                    <td><?php echo strtoupper($gender);?></td>
+                                    <td><?php echo strtoupper($gender); ?></td>
                                 </tr>
                                 <tr>
                                     <th width="30%">Country</th>
                                     <td width="2%">:</td>
-                                    <td><?php echo strtoupper($country);?></td>
+                                    <td><?php echo strtoupper($country); ?></td>
                                 </tr>
                             </table>
                         </div>
                     </div>
                     <div style="height: 26px"></div>
-                    
+
                     <div class="editProf">
                         <a href="editProf.php"><button class="btn btn-primary">Edit Profile</button></a>
                     </div>

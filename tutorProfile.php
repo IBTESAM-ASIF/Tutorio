@@ -1,24 +1,25 @@
 <?php
- include 'connection.php';
- session_start();
+include 'connection.php';
+session_start();
 
- if (isset($_SESSION['uname'])) {
-     $name = $_SESSION['uname'];
- }
+if (isset($_SESSION['uname'])) {
+    $name = $_SESSION['uname'];
+}
 
- $sql_query = "select * from tutor where email ='" . $name . "'";
- $result = mysqli_query($con, $sql_query);
- $row = mysqli_fetch_array($result);
- $first = $row['first'];
- $last = $row['last'];
- $number = $row['phone'];
- $age = $row['age'];
- $gender = $row['gender'];
- $country = $row['country'];
- $description = ['description'];
- $language = ['language'];
- $fee = ['fee'];
- $email = $row['email'];
+$sql_query = "select * from tutor where email ='" . $name . "'";
+$result = mysqli_query($con, $sql_query);
+$row = mysqli_fetch_array($result);
+$first = $row['first'];
+$last = $row['last'];
+$number = $row['phone'];
+$age = $row['age'];
+$gender = $row['gender'];
+$country = $row['country'];
+$description = ['description'];
+$language = ['language'];
+$fee = ['fee'];
+$email = $row['email'];
+$image = $row['photo'];
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +40,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        body{
+        body {
             background: linear-gradient(to bottom, #0d2d40, #0c0c0c);
         }
     </style>
@@ -55,17 +56,16 @@
                 <span></span>
             </label>
             <ul class="menu__box">
-            <li><a class="menu__item" href="./home.php">Home</a></li>
-                <li><a class="menu__item" href="./mylectures.html">My Lectures</a></li>
+                <li><a class="menu__item" href="./tutorhome.php">Home</a></li>
+                <li><a class="menu__item" href="./mylectures.php">My Lectures</a></li>
                 <li><a class="menu__item" href="./studentcircle.php">Student Circle</a></li>
 
                 <?php
                 if (isset($_SESSION['uname'])) {
                     echo '<li><a class="menu__item" href="./tutorProfile.php">' . $name . '</a></li>';
-                    echo '<li><a class="menu__item" href="./logout.php">Logout</a></li>';
-                }
-                else{
-                    echo '<li><a class="menu__item" href="./tutorlogin.php">Sign IN as tutor</a></li>';
+                    echo '<li><a class="menu__item" href="./logout.php"><?php session_destroy(); ?>Logout</a></li>';
+                } else {
+                    echo '<li><a class="menu__item" href="./tutorlogin.php">Sign in as tutor</a></li>';
                 }
                 ?>
             </ul>
@@ -78,12 +78,12 @@
                 <div class="col-lg-4">
                     <div class="card shadow-sm">
                         <div class="card-header bg-transparent text-center">
-                            <img class="profile_img" src="./img/team2.jpg" alt="pic">
-                            <h3><?php echo strtoupper($first ." ". $last);?></h3>
+                            <img class="profile_img" src=<?php echo "./uploads/$image" ?> alt="pic">
+                            <h3><?php echo strtoupper($first . " " . $last); ?></h3>
                         </div>
                         <div class="card-body">
-                            <p class="mb-0"><strong class="pr-1">Tutor Email: </strong><?php echo $email?></p>
-                            <p class="mb-0"><strong class="pr-1">Phone Number: </strong><?php echo $number?></p>
+                            <p class="mb-0"><strong class="pr-1">Tutor Email: </strong><?php echo $email ?></p>
+                            <p class="mb-0"><strong class="pr-1">Phone Number: </strong><?php echo $number ?></p>
                         </div>
                     </div>
                 </div>
@@ -107,12 +107,12 @@
                                 <tr>
                                     <th width="30%">Gender</th>
                                     <td width="2%">:</td>
-                                    <td><?php echo strtoupper($gender);?></td>
+                                    <td><?php echo strtoupper($gender); ?></td>
                                 </tr>
                                 <tr>
                                     <th width="30%">Country</th>
                                     <td width="2%">:</td>
-                                    <td><?php echo strtoupper($country);?></td>
+                                    <td><?php echo strtoupper($country); ?></td>
                                 </tr>
                                 <tr>
                                     <th width="30%">blood</th>

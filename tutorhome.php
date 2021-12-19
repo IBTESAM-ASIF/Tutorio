@@ -32,17 +32,17 @@ if (isset($_SESSION['uname'])) {
                 <span></span>
             </label>
             <ul class="menu__box">
-                <li><a class="menu__item" href="#">Home</a></li>
+                <li><a class="menu__item" href="./tutorhome.php">Home</a></li>
                 <li><a class="menu__item" href="./mylectures.php">My Lectures</a></li>
                 <li><a class="menu__item" href="./studentcircle.php">Student Circle</a></li>
 
                 <?php
                 if (isset($_SESSION['uname'])) {
                     echo '<li><a class="menu__item" href="./tutorProfile.php">' . $name . '</a></li>';
-                    echo '<li><a class="menu__item" href="./logout.php">Logout</a></li>';
+                    echo '<li><a class="menu__item" href="./logout.php"><?php session_destroy(); ?>Logout</a></li>';
                 }
                 else{
-                    echo '<li><a class="menu__item" href="./tutorlogin.php">Sign IN as tutor</a></li>';
+                    echo '<li><a class="menu__item" href="./tutorlogin.php">Sign in as tutor</a></li>';
                 }
                 ?>
             </ul>

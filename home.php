@@ -34,15 +34,13 @@ if (isset($_SESSION['uname'])) {
       <ul class="menu__box">
         <li><a class="menu__item" href="./home.php">Home</a></li>
         <li><a class="menu__item" href="./findtutors.php">Find Tutors</a></li>
-        <li><a class="menu__item" href="./Aboutus.php">About US</a></li>
-        <li><a class="menu__item" href="./contact.php">Contact US</a></li>
         <?php
         if (!isset($_SESSION['uname'])) {
           echo '<li><a class="menu__item" href="./login.php">Login/Signup</a></li>';
           echo '<li><a class="menu__item" href="./tutorsignup.php">Signup as Tutor</a></li>';
         } else {
           echo '<li><a class="menu__item" href="./profile.php">' . $name . '</a></li>';
-          echo '<li><a class="menu__item" href="./login.php">Logout</a></li>';
+          echo '<li><a class="menu__item" href="./login.php"><?php session_destroy(); ?>Logout</a></li>';
         }
         ?>
       </ul>
