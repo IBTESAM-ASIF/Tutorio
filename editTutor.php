@@ -50,7 +50,7 @@ if (isset($_POST['submit'])) {
 
     $image = basename($_FILES["imageUpload"]["name"], ".jpg"); // used to store the filename in a variable
 
-    $sql = "UPDATE student SET First_Name='$first', Last_Name='$last', Phone_Number='$phone', Age='$age', Gender='$gender', Country='$country', Email='$email', Password='$password', photo='$image' where email='$name';";
+    $sql = "UPDATE tutor SET first ='$first', last ='$last', phone ='$phone', age='$age', gender='$gender', country='$country', description = '$Description', language = '$Language', fee = '$Fee', source = '$Source', email='$email', Password='$password', photo='$image' where email='$name';";
 
     if ($con->query($sql) == true) {
         header("Location: tutorhome.php");
@@ -78,7 +78,7 @@ if (isset($_POST['submit'])) {
 <body class="align">
     <div class="grid">
         <h1>Edit Profile</h1>
-        <form action="editProf.php" method="POST" class="form login" enctype='multipart/form-data'>
+        <form action="editTutor.php" method="POST" class="form login" enctype='multipart/form-data'>
 
             <div class="form__field">
                 <label id="login__username" class="form__input" for="upload">Upload Your Picture</label><br>
@@ -87,63 +87,63 @@ if (isset($_POST['submit'])) {
 
             <div class="form__field">
                 <label for="">First Name:</label>
-                <input id="login__username" type="text" name="first" class="form__input" placeholder="First Name" value="<?php echo $first ?>" required>
+                <input id="login__username" type="text" name="first" class="form__input" placeholder="First Name" value="<?php echo $first ?>">
             </div>
 
             <div class="form__field">
                 <label for="">Last Name:</label>
-                <input id="login__username" type="text" name="last" class="form__input" placeholder="Last Name" value="<?php echo $last ?>" required>
+                <input id="login__username" type="text" name="last" class="form__input" placeholder="Last Name" value="<?php echo $last ?>">
             </div>
 
             <div class="form__field">
                 <label for="">Age:</label>
-                <input id="login__username" type="text" name="age" class="form__input" placeholder="Age" value="<?php echo $age ?>" required>
+                <input id="login__username" type="text" name="age" class="form__input" placeholder="Age" value="<?php echo $age ?>">
             </div>
 
             <div class="form__field">
                 <label for="">Phone Number:</label>
-                <input id="login__username" type="tel" name="phone" class="form__input" placeholder="Phone" value="<?php echo $number ?>" required>
+                <input id="login__username" type="tel" name="phone" class="form__input" placeholder="Phone" value="<?php echo $number ?>">
             </div>
 
             <div class="form__field">
                 <label for="">Gender:</label>
-                <input id="login__username" type="text" name="gender" class="form__input" placeholder="Gender" value="<?php echo $gender ?>" required>
+                <input id="login__username" type="text" name="gender" class="form__input" placeholder="Gender" value="<?php echo $gender ?>">
             </div>
 
             <div class="form__field">
                 <label for="">Country:</label>
-                <input id="login__password" type="text" name="country" class="form__input" placeholder="Country" value="<?php echo $country ?>" required>
+                <input id="login__password" type="text" name="country" class="form__input" placeholder="Country" value="<?php echo $country ?>">
             </div>
 
 
             <div class="form__field">
                 <label for="">Description:</label>
-                <input id="login__username" type="text" name="description" class="form__input" placeholder="Description" value="<?php echo $description ?>" required>
+                <input id="login__username" type="text" name="description" class="form__input" placeholder="Description" value="<?php echo $description ?>">
             </div>
 
             <div class="form__field">
                 <label for="">Language:</label>
-                <input id="login__username" type="text" name="language" class="form__input" placeholder="Language" value="<?php echo $language ?>" required>
+                <input id="login__username" type="text" name="language" class="form__input" placeholder="Language" value="<?php echo $language ?>">
             </div>
 
             <div class="form__field">
                 <label for="">Fee:</label>
-                <input id="login__username" type="text" name="fee" class="form__input" placeholder="Fee" value="<?php echo $fee ?>" required>
+                <input id="login__username" type="text" name="fee" class="form__input" placeholder="Fee" value="<?php echo $fee ?>">
             </div>
 
             <div class="form__field">
                 <label for="">Source:</label>
-                <input id="login__username" type="text" name="source" class="form__input" placeholder="Source" value="<?php echo $source ?>" required>
+                <input id="login__username" type="text" name="source" class="form__input" placeholder="Source" value="<?php echo $source ?>">
             </div>
 
             <div class="form__field">
                 <label for="">Email:</label>
-                <input id="login__username" type="email" name="email" class="form__input" placeholder="Email" value="<?php echo $email ?>" required>
+                <input id="login__username" type="email" name="email" class="form__input" placeholder="Email" value="<?php echo $email ?>">
             </div>
 
             <div class="form__field">
                 <label for="">Password:</label>
-                <input id="login__username" type="password" name="password" class="form__input" placeholder="Password" value="<?php echo $password ?>" required>
+                <input id="login__username" type="password" name="password" class="form__input" placeholder="Password" value="<?php echo $password ?>">
             </div>
 
             <div class="form__field">
