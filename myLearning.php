@@ -4,7 +4,7 @@ session_start();
 if (isset($_SESSION['uname'])) {
     $name = $_SESSION['uname'];
 }
-$sql_query = "select s.description, lecture from teacher_course ts join teacher_student tc on ts.teacherEmail = tc.teacherEmail join subject s on ts.subID = s.subID where tc.studentEmail = '" . $name . "'";
+$sql_query = "select t.*, s.description, lecture from teacher_course ts join teacher_student tc on ts.teacherEmail = tc.teacherEmail join subject s on ts.subID = s.subID join tutor t on ts.teacherEmail = t.email where tc.studentEmail = '" . $name . "'";
 $result = mysqli_query($con, $sql_query);
 ?>
 
@@ -54,7 +54,9 @@ $result = mysqli_query($con, $sql_query);
         </tr>
         <t>
             <th>Course Name</th>
+            <th>Taught By:</th>
             <th>Lecture Video</th>
+
         </t>
         <?php
         $result = mysqli_query($con, $sql_query);
@@ -63,6 +65,7 @@ $result = mysqli_query($con, $sql_query);
         ?>
                 <tr>
                     <td><?php echo $rows['description']; ?></td>
+                    <td><?php echo $rows['first'] . " " . $rows['last']; ?></td>
                     <td><video width="500px" height="280px" controls="controls" />
                         <source src="./<?php echo $rows['lecture']; ?>.mp4" type="video/mp4">
                         </video>
