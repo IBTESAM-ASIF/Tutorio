@@ -17,9 +17,8 @@ if (isset($_POST['but_submit'])) {
         $count = $row['cntUser'];
 
         if ($count > 0) {
-            $name = $row['Student_ID'];
             $_SESSION['uname'] = $uname;
-            header('Location: home.php');
+            header('Location: ./home.php');
         } else {
             $flag = true;
         }
@@ -68,6 +67,10 @@ if (isset($_POST['but_submit'])) {
             <div class="form__field">
                 <input type="submit" id="but_submit" value="Sign In" name="but_submit">
             </div>
+        </form>
+        <form action="./forgot.php" method="post">
+            <input type="hidden" name="uname" value="<?php echo $name ?>">
+            <input name="submit" type="submit" value="forgot password?">
         </form>
         <br>
         <a href="./tutorlogin.php"><button

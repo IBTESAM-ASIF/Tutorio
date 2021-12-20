@@ -52,8 +52,6 @@ if (isset($_POST['submit'])) {
 
     $sql = "UPDATE student SET First_Name='$first', Last_Name='$last', Phone_Number='$phone', Age='$age', Gender='$gender', Country='$country', Email='$email', Password='$password', photo='$image' where email='$name';";
 
-
-
     if ($con->query($sql) == true) {
         header("Location: tutorhome.php");
     } else {

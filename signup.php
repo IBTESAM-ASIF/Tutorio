@@ -1,23 +1,24 @@
 <?php
 include("connection.php");
 if (isset($_POST['submit'])) {
+    $flag = 1;
     $first = $_POST['first'];
     $last = $_POST['last'];
     $phone = $_POST['phone'];
     $age = $_POST['age'];
     $gender = $_POST['gender'];
     $country = $_POST['country'];
-    $username = $_POST['username'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $sql = "INSERT INTO `student` (`First_Name`, `Last_Name`, `Phone_Number` , `Age`, `Gender` , `Country` , `Email` , `Password`) VALUES ('$first','$last', '$phone' , '$age', '$gender' , '$country' , '$username' , '$password');";
+    $sql = "INSERT INTO `student` (`First_Name`, `Last_Name`, `Phone_Number` , `Age`, `Gender` , `Country` , `Email` , `Password`) VALUES ('$first','$last', '$phone' , '$age', '$gender' , '$country' , '$email' , '$password');";
 
 
     if ($con->query($sql) == true) {
-        
+
         header("Location: ./login.php");
     } else {
-        echo "error, $sql <br> $con->error()";
+        echo "Email already used!";
     }
 }
 ?>
@@ -32,6 +33,8 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/nav_style.css">
     <link rel="stylesheet" href="css/footer.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
     <title>Tutorio | Signup</title>
 </head>
@@ -42,13 +45,11 @@ if (isset($_POST['submit'])) {
         <form action="./signup.php" method="POST" class="form login">
 
             <div class="form__field">
-                <input id="login__username" type="text" name="first" class="form__input" placeholder="First Name"
-                    required>
+                <input id="login__username" type="text" name="first" class="form__input" placeholder="First Name" required>
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="last" class="form__input" placeholder="Last Name"
-                    required>
+                <input id="login__username" type="text" name="last" class="form__input" placeholder="Last Name" required>
             </div>
 
             <div class="form__field">
@@ -69,19 +70,18 @@ if (isset($_POST['submit'])) {
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="text" name="country" class="form__input" placeholder="country"
-                    required>
+                <input id="login__username" type="text" name="country" class="form__input" placeholder="country" required>
             </div>
 
             <div class="form__field">
-                <input id="login__username" type="email" name="username" class="form__input" placeholder="username Name"
-                    required>
+                <input id="login__username username" type="email" name="email" class="form__input form-control mb-1" placeholder="Email" required>
+                <div id="uname_result"></div>
             </div>
 
             <div class="form__field">
-                <input id="login__password" type="password" name="password" class="form__input" placeholder="Password"
-                    required>
+                <input id="login__password" type="password" name="password" class="form__input" placeholder="Password" required>
             </div>
+            
 
 
             <div class="form__field">
@@ -95,6 +95,25 @@ if (isset($_POST['submit'])) {
             </svg></p>
 
     </div>
+    
 </body>
-
+<script>
+  $(document).ready(function () {
+    $('#email').on('blur', function () {
+      var email = $(this).val().trim();
+      if (email != '') {
+        $.ajax({
+          url: 'username_checker.php',
+          type: 'post',
+          data: { email: email },
+          success: function (response) {
+            $('#uname_result').html(response);
+          }
+        });
+      } else {
+        $("#uname_result").html("");
+      }
+    });
+  });
+</script>
 </html>

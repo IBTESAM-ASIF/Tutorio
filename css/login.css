@@ -13,12 +13,14 @@
   .align {
     display: grid;
     place-items: center;
+    padding: 16px;
   }
   
   .grid {
     inline-size: 90%;
     margin-inline: auto;
     max-inline-size: 20rem;
+    padding: 16px;
   }
   
   /* helpers/hidden.css */
@@ -116,7 +118,7 @@
     font: inherit;
     margin: 0;
     outline: 0;
-    padding: 0;
+    padding: 16px;
     transition: background-color 0.3s;
   }
   
@@ -131,7 +133,9 @@
   
   .form input[type="password"],
   .form input[type="text"],
-  .form input[type="submit"] {
+  .form input[type="submit"],
+  .form input[type="email"],
+  .form input[type="tel"] {
     inline-size: 100%;
   }
   
@@ -166,9 +170,11 @@
   .login label,
   .login input[type="text"],
   .login input[type="password"],
-  .login input[type="submit"] {
+  .login input[type="submit"],
+  .login input[type="tel"],
+  .login input[type="email"] {
     border-radius: var(--loginBorderRadus);
-    padding: 1rem;
+    padding: 16px;
   }
   
   .login label {

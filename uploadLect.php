@@ -6,6 +6,33 @@ if (isset($_SESSION['uname'])) {
     $name = $_SESSION['uname'];
 }
 
+if(isset($_POST['submit'])){
+    
+    $subID = $_POST['subID'];
+    $lecture = $_POST['lecture'];
+
+    $target_dir = "uploads/lectures/";
+    $target_file = $target_dir . basename($_FILES["lecture"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+
+    if (move_uploaded_file($_FILES["lecture"]["tmp_name"], $target_file)) {
+        echo "The file " . basename($_FILES["lecture"]["name"]) . " has been uploaded.";
+    } else {
+        echo "Sorry, there was an error uploading your file.";
+    }
+
+    $video = basename($_FILES["lecture"]["name"], ".mp4");
+
+    $query = "INSERT INTO `teacher_course` (`teacherEmail`, `subID`, `lecture`) VALUES ('$name',".$subID.", '$video');";
+
+    if ($con->query($query) == true) {
+        
+        header("Location: ./tutorhome.php");
+    } else {
+        echo "error, $query <br> $con->error()";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +81,7 @@ if (isset($_SESSION['uname'])) {
     </div>
     <div class="section">
         <h2>Upload Your Lectures Here</h2>
-        <form action="./teach_sub.php" method="POST">
+        <form action="./teach_sub.php" method="POST" enctype="multipart/form-data">
             <label for="subID">Select Course: </label>
             <select style="margin: auto;" name="subID" id="subID">
                 <?php
@@ -66,8 +93,10 @@ if (isset($_SESSION['uname'])) {
                 ?>
             </select>
             <br><br>
-            <label for="">Upload your full Lecture Here: </label>
-            <input type="file">
+            <div class="form__field">
+                <label id="login__username" class="form__input" for="upload">Upload Your Lecture Here: </label><br>
+                <input id="lecture" type="file" name="lecture" class="form__input" placeholder="Lecture Upload" accept=".mp4">
+            </div>
             <br>
             <br>
             <input type="submit" name="submit" value="Submit">

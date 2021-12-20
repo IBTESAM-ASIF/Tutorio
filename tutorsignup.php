@@ -14,8 +14,8 @@ if (isset($_POST['submit'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $sql = "INSERT INTO `tutor` (`first`, `last`, `age`, `phone`, `gender`, `country`, `description`, `language`, `fee`, `source`, `email`, `password`) VALUES ('$first', '$last', '$age', '$phone', '$gender', '$country', '$description', '$language', '$fee', '$source', '$username', '$password');";
-
+    $sql = "INSERT INTO `tutor` (`first`, `last`, `age`, `phone`, `gender`, `country`, `description`, `language`, `fee`, `source`, `email`, `password`, `photo`) VALUES ('$first', '$last', '$age', '$phone', '$gender', '$country', '$description', '$language', '$fee', '$source', '$username', '$password', '');";
+    // echo $sql;
 
     if ($con->query($sql) == true) {
         header("Location: tutorlogin.php");
