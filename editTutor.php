@@ -48,9 +48,9 @@ if (isset($_POST['submit'])) {
         echo "Sorry, there was an error uploading your file.";
     }
 
-    $image = basename($_FILES["imageUpload"]["name"], ".jpg"); // used to store the filename in a variable
-
-    $sql = "UPDATE tutor SET first ='$first', last ='$last', phone ='$phone', age='$age', gender='$gender', country='$country', description = '$Description', language = '$Language', fee = '$Fee', source = '$Source', email='$email', Password='$password', photo='/images/$image' where email='$name';";
+    $image = $_FILES["imageUpload"]["name"];
+    
+    $sql = "UPDATE tutor SET first ='$first', last ='$last', phone ='$phone', age='$age', gender='$gender', country='$country', description='$description', language = '$language', fee = '$fee', source = '$source', email='$email', Password='$password', photo='$image' where email='$name';";
 
     if ($con->query($sql) == true) {
         header("Location: tutorhome.php");

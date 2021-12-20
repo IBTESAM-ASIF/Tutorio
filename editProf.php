@@ -28,8 +28,9 @@ if (isset($_POST['submit'])) {
     $country = $_POST['country'];
     $email = $_POST['email'];
     $password = $_POST['password'];
+    // $photo = $_POST['photo'];
 
-    $target_dir = "uploads/";
+    $$target_dir = "uploads/";
     $target_file = $target_dir . basename($_FILES["imageUpload"]["name"]);
     $uploadOk = 1;
     $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
@@ -40,7 +41,7 @@ if (isset($_POST['submit'])) {
         echo "Sorry, there was an error uploading your file.";
     }
 
-    $image = basename($_FILES["imageUpload"]["name"], ".jpg"); // used to store the filename in a variable
+    $image = $_FILES["imageUpload"]["name"];
 
     $sql = "UPDATE student SET First_Name='$first', Last_Name='$last', Phone_Number='$phone', Age='$age', Gender='$gender', Country='$country', Email='$email', Password='$password', photo='$image' where email='$name';";
 
