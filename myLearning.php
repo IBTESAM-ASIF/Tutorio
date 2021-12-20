@@ -4,14 +4,8 @@ session_start();
 if (isset($_SESSION['uname'])) {
     $name = $_SESSION['uname'];
 }
-$sql_query = "select * from subject s join teacher_course tc on s.subID = tc.subID where tc.teacherEmail ='" . $name . "'";
-if(isset($_POST['course_del'])){
-    $id = $_POST['course_del'];
-    $query = "DELETE FROM `teacher_course` WHERE `teacher_course`.`teacherEmail` = '$name' AND `teacher_course`.`subID` = $id;";
-    // echo $query;
-    $result = mysqli_query($con, $query);
-    header("Location: \Project\Final_Design\lectures.php");
-}
+$sql_query = "select s.description, lecture from teacher_course ts join teacher_student tc on ts.teacherEmail = tc.teacherEmail join subject s on ts.subID = s.subID where tc.studentEmail = '" . $name . "'";
+$result = mysqli_query($con, $sql_query);
 ?>
 
 <!DOCTYPE html>
@@ -60,27 +54,28 @@ if(isset($_POST['course_del'])){
         </tr>
         <t>
             <th>Course Name</th>
-            <th>Course Domain</th>
+            <th>Lecture Video</th>
         </t>
         <?php
         $result = mysqli_query($con, $sql_query);
         if (mysqli_num_rows($result) > 0) {
             while ($rows = mysqli_fetch_assoc($result)) {
-            $id = $rows['subID'];
         ?>
                 <tr>
                     <td><?php echo $rows['description']; ?></td>
-                    <td><?php echo $rows['domain'] ?></td>
-                    <form action="./lectures.php" method="post">
-                        <td><button type="submit" value=<?php echo $id?> name="course_del">Delete This Course</button></td>
-                    </form>
+                    <td><video width="500px" height="280px" controls="controls" />
+                        <source src="./<?php echo $rows['lecture']; ?>.mp4" type="video/mp4">
+                        </video>
+                    </td>
                 </tr>
-                
         <?php
             }
+        } else {
+            echo "You have no lectures currently";
         }
         ?>
     </table>
 
 </body>
+
 </html>
