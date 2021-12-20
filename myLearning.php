@@ -33,19 +33,20 @@ $result = mysqli_query($con, $sql_query);
                 <span></span>
             </label>
             <ul class="menu__box">
-                <li><a class="menu__item" href="#">Home</a></li>
-                <li><a class="menu__item" href="./mylectures.php">My Lectures</a></li>
-                <li><a class="menu__item" href="./studentcircle.php">Student Circle</a></li>
+        <li><a class="menu__item" href="./home.php">Home</a></li>
+        <li><a class="menu__item" href="./findtutors.php">Find Tutors</a></li>
+        <?php
+        if (!isset($_SESSION['uname'])) {
+          echo '<li><a class="menu__item" href="./login.php">Login/Signup</a></li>';
+          echo '<li><a class="menu__item" href="./tutorsignup.php">Signup as Tutor</a></li>';
+        } else {
+          echo '<li><a class="menu__item" href="./profile.php">' . $name . '</a></li>';
+          echo '<li><a class="menu__item" href="./myLearning.php">My Learning</a></li>';
 
-                <?php
-                if (isset($_SESSION['uname'])) {
-                    echo '<li><a class="menu__item" href="./tutorProfile.php">' . $name . '</a></li>';
-                    echo '<li><a class="menu__item" href="./logout.php">Logout</a></li>';
-                } else {
-                    echo '<li><a class="menu__item" href="./tutorlogin.php">Sign IN as tutor</a></li>';
-                }
-                ?>
-            </ul>
+          echo '<li><a class="menu__item" href="./login.php"><?php session_destroy(); ?>Logout</a></li>';
+        }
+        ?>
+      </ul>
         </div>
     </div>
     <table style="margin: auto;">
