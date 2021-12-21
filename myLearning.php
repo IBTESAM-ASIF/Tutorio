@@ -64,14 +64,14 @@ $result = mysqli_query($con, $sql_query);
         if (mysqli_num_rows($result) > 0) {
             while ($rows = mysqli_fetch_assoc($result)) {
         ?>
-                <tr>
-                    <td><?php echo $rows['description']; ?></td>
-                    <td><?php echo $rows['first'] . " " . $rows['last']; ?></td>
-                    <td><video width="500px" height="280px" controls="controls" />
-                        <source src="./<?php echo $rows['lecture']; ?>.mp4" type="video/mp4">
-                        </video>
-                    </td>
-                </tr>
+        <tr>
+            <td><?php echo $rows['description']; ?></td>
+            <td><?php echo $rows['first'] . " " . $rows['last']; ?></td>
+            <td><video width="500px" height="280px" controls="controls" />
+                <source src="./<?php echo $rows['lecture']; ?>.mp4" type="video/mp4">
+                </video>
+            </td>
+        </tr>
         <?php
             }
         } else {

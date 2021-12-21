@@ -42,6 +42,7 @@ $result = $con->query($sql) or die($con->error);
           echo '<li><a class="menu__item" href="./tutorsignup.php">Signup as Tutor</a></li>';
         } else {
           echo '<li><a class="menu__item" href="./profile.php">' . $name . '</a></li>';
+          echo '<li><a class="menu__item" href="./myLearning.php">My Learning</a></li>';
           echo '<li><a class="menu__item" href="./login.php"><?php session_destroy(); ?>Logout</a></li>';
         }
         ?>
