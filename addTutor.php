@@ -13,7 +13,7 @@ if (isset($_SESSION['uname'])) {
       if ($con->multi_query($query2) == true) {
         header("Location: \Project\Final_Design\home.php");
     } else {
-        echo "error, $query2 <br> $con->error()";
+      header('location:error.php');
     }
   }
 }
