@@ -42,6 +42,9 @@ $image = $row['photo'];
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css'>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
+</style>
     <link rel="stylesheet" href="newprofile.css">
     <style>
         body {
@@ -81,30 +84,30 @@ $image = $row['photo'];
         <div class="card p-4">
             <div class=" image d-flex flex-column justify-content-center align-items-center">
                 <img src="https://i.imgur.com/wvxPV9S.png" height="100" width="100" />
-                <span class="name mt-3"><?php echo strtoupper($first . " " . $last); ?></span>
+                <span class="name mt-3" style="font-family: 'Koulen', cursive;"><?php echo strtoupper($first . " " . $last); ?></span>
                 
                 <div class="text mt-3">
-                    <span>Email: <?php echo $email ?></span>
+                    <span>Email: </span><span style="font-family: 'Koulen', cursive;"><?php echo $email ?></span>
                 </div>
 
                 <div class="text mt-3">
-                    <span>Phone Number: <?php echo $number ?></span>
+                    <span>Phone Number: </span><span style="font-family: 'Koulen', cursive;"><?php echo $number ?></span>
                 </div>
 
                 <div class="text mt-3">
-                    <span>Age: <?php echo $age ?></span>
+                <span>Age: </span><span style="font-family: 'Koulen', cursive;"><?php echo $age ?></span>
                 </div>
 
                 <div class="text mt-3">
-                    <span>Gender: <?php echo $gender ?></span>
+                <span>Gender: </span><span style="font-family: 'Koulen', cursive;"><?php echo $gender ?></span>
                 </div>
 
                 <div class="text mt-3">
-                    <span>Country: <?php echo $country ?></span>
+                <span>Country: </span><span style="font-family: 'Koulen', cursive;"><?php echo $country ?></span>
                 </div>
 
                 <div class="text mt-3">
-                    <span>Description: <?php echo $description ?> </span>
+                <span>Description: </span><span style="font-family: 'Koulen', cursive;"><?php echo $description ?> </span>
                 </div>
 
 
