@@ -1,12 +1,12 @@
 <?php
-include ('connection.php');
+include('connection.php');
 session_start();
 
 if (isset($_SESSION['uname'])) {
-  $name = $_SESSION['uname'];
+    $name = $_SESSION['uname'];
 }
-if(!isset($_SESSION['uname'])){
-  header("Location: login.php");
+if (!isset($_SESSION['uname'])) {
+    header("Location: login.php");
 }
 
 $sql_query = "select * from student where Email ='" . $name . "'";
@@ -20,7 +20,6 @@ $gender = $row['Gender'];
 $country = $row['Country'];
 $email = $row['Email'];
 $image = $row['photo'];
-
 ?>
 
 <!DOCTYPE html>
@@ -41,8 +40,13 @@ $image = $row['photo'];
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
+    </style>
+    <link rel="stylesheet" href="newprofile.css">
+    <style>
         body {
-            background: linear-gradient(to bottom, #0d2d40, #0c0c0c);
+            background: linear-gradient(to bottom, #05445E, #189AB4);
+
         }
     </style>
     <title>Tutorio | Login</title>
@@ -66,59 +70,44 @@ $image = $row['photo'];
                 } else {
                     echo '<li><a class="menu__item" href="./profile.php">' . $name . '</a></li>';
                     echo '<li><a class="menu__item" href="./myLearning.php">My Learning</a></li>';
-                    echo '<li><a class="menu__item" href="./login.php"><?php session_destroy(); ?>Logout</a></li>';
+                    echo '<li><a class="menu__item" href="http://localhost:3003?username=' . $name . '"><?php session_destroy(); ?>Chat</a></li>';
+
+                    echo '<li><a class="menu__item" href="./logout.php"><?php session_destroy(); ?>Logout</a></li>';
                 }
                 ?>
             </ul>
         </div>
     </div>
 
-    <div class="student-profile py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-auto">
-                    <div class="card shadow-sm">
-                        <div class="card-header bg-transparent text-center">
-                            <img class="profile_img" src=<?php echo "./uploads/$image" ?> alt="pic">
-                            <h3><?php echo strtoupper($first . " " . $last); ?></h3>
-                        </div>
-                        <div class="card-body">
-                            <p class="mb-0"><strong class="pr-1">Student Email: </strong><?php echo $email ?></p>
-                            <p class="mb-0"><strong class="pr-1">Phone Number: </strong><?php echo $number ?></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="card shadow-sm">
-                        <div class="card-header bg-transparent border-0">
-                            <h3 class="mb-0"><i class="far fa-clone pr-1"></i>General Information</h3>
-                        </div>
-                        <div class="card-body pt-0">
-                            <table class="table table-bordered">
-                                <tr>
-                                    <th width="30%">Age</th>
-                                    <td width="2%">:</td>
-                                    <td><?php echo $age ?></td>
-                                </tr>
-                                <tr>
-                                    <th width="30%">Gender</th>
-                                    <td width="2%">:</td>
-                                    <td><?php echo strtoupper($gender); ?></td>
-                                </tr>
-                                <tr>
-                                    <th width="30%">Country</th>
-                                    <td width="2%">:</td>
-                                    <td><?php echo strtoupper($country); ?></td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <div style="height: 26px"></div>
+    <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+        <div class="card p-4">
+            <div class=" image d-flex flex-column justify-content-center align-items-center">
+                <img src="https://i.imgur.com/wvxPV9S.png" height="100" width="100" />
+                <span class="name mt-3" style="font-family: 'Koulen', cursive;"><?php echo strtoupper($first . " " . $last); ?></span>
 
-                    <div class="editProf">
-                        <a href="editProf.php"><button class="btn btn-primary">Edit Profile</button></a>
-                    </div>
+                <div class="text mt-3">
+                    <span>Email: </span><span style="font-family: 'Koulen', cursive;"><?php echo $email ?></span>
                 </div>
+
+                <div class="text mt-3">
+                    <span>Phone Number: </span><span style="font-family: 'Koulen', cursive;"><?php echo $number ?></span>
+                </div>
+
+                <div class="text mt-3">
+                    <span>Age: </span><span style="font-family: 'Koulen', cursive;"><?php echo $age ?></span>
+                </div>
+
+                <div class="text mt-3">
+                    <span>Gender: </span><span style="font-family: 'Koulen', cursive;"><?php echo $gender ?></span>
+                </div>
+
+                <div class="text mt-3">
+                    <span>Country: </span><span style="font-family: 'Koulen', cursive;"><?php echo $country ?></span>
+                </div>
+
+                <div class=" d-flex mt-2"> <a href="/Tutorio/editProf.php"><button class="btn1 btn-dark">Edit Profile</button></a>
+                </div>
+
             </div>
         </div>
     </div>

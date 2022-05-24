@@ -1,11 +1,11 @@
 <?php
-include ('connection.php');
+include('connection.php');
 session_start();
 
 if (isset($_SESSION['uname'])) {
   $name = $_SESSION['uname'];
 }
-if(!isset($_SESSION['uname'])){
+if (!isset($_SESSION['uname'])) {
   header("Location: login.php");
 }
 ?>
@@ -23,8 +23,8 @@ if(!isset($_SESSION['uname'])){
   <link rel="stylesheet" href="css/home.css">
   <link rel="stylesheet" href="newhome.css">
   <style>
-@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
-</style>
+    @import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
+  </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   <!-- <link rel="stylesheet" href="css/home.css"> -->
@@ -32,7 +32,7 @@ if(!isset($_SESSION['uname'])){
 </head>
 
 <body id="cover">
-  <div ></div>
+  <div></div>
   <div class="nav">
     <div class="hamburger-menu">
       <input id="menu__toggle" type="checkbox" />
@@ -49,47 +49,46 @@ if(!isset($_SESSION['uname'])){
         } else {
           echo '<li><a class="menu__item" href="./profile.php">' . $name . '</a></li>';
           echo '<li><a class="menu__item" href="./myLearning.php">My Learning</a></li>';
-          echo '<li><a class="menu__item" href="http://localhost:3003?username=' .$name. '"><?php session_destroy(); ?>Chat</a></li>';
+          echo '<li><a class="menu__item" href="http://localhost:3003?username=' . $name . '"><?php session_destroy(); ?>Chat</a></li>';
 
           echo '<li><a class="menu__item" href="./logout.php"><?php session_destroy(); ?>Logout</a></li>';
-          }
+        }
         ?>
       </ul>
     </div>
     <div>
 
 
- 
-  <div class="container">
-        
-        <div class="span2">
-            <a href="http://localhost:3003?username=' .$name. '" style="font-size: large">
-                CHAT
-      </a>
 
-            <h2 class="large">
-                Tutorio Student
-            </h2>
+      <div class="container">
+
+        <div class="span2">
+          <h3>START LEARNING TODAY</h3>
+
+          <h2 class="large">
+            Tutorio Student
+          </h2>
         </div>
-  
-      
+
+
+
         <div class="span5">
-            <h2 style="font-family: 'Koulen', cursive;">
-                tomorrow
-            </h2>
+          <a href="/Tutorio/findtutors.php" style="font-size: 100px">
+            Find Tutors
+          </a>
         </div>
         <div class="span6">
-            <a href="#">
-                tomorrow
-      </a>
+          <a href="http://localhost:3003?username=' .$name. '" style="font-size: 100px">
+            CHAT
+          </a>
         </div>
         <div class="span7">
         </div>
 
+      </div>
+
     </div>
 
-      </div>
-  
   </div>
   </script>
 </body>
