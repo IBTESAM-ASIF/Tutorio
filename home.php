@@ -5,7 +5,9 @@ session_start();
 if (isset($_SESSION['uname'])) {
   $name = $_SESSION['uname'];
 }
-
+if(!isset($_SESSION['uname'])){
+  header("Location: login.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -19,6 +21,12 @@ if (isset($_SESSION['uname'])) {
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/slide.css">
   <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="newhome.css">
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
+</style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
   <!-- <link rel="stylesheet" href="css/home.css"> -->
   <title>Tutorio</title>
 </head>
@@ -42,15 +50,52 @@ if (isset($_SESSION['uname'])) {
           echo '<li><a class="menu__item" href="./profile.php">' . $name . '</a></li>';
           echo '<li><a class="menu__item" href="./myLearning.php">My Learning</a></li>';
 
-          echo '<li><a class="menu__item" href="./login.php"><?php session_destroy(); ?>Logout</a></li>';
+          echo '<li><a class="menu__item" href="./logout.php"><?php session_destroy(); ?>Logout</a></li>';
+          echo '<li><a class="menu__item" href="http://localhost:3002?username=' .$name. '"><?php session_destroy(); ?>Chat</a></li>';
+
         }
         ?>
       </ul>
     </div>
+    <div>
+
+
+ 
+  <div class="container">
+        
+        <div class="span2">
+            <h2 class="medtext" style="color: black">
+                Learn With US
+            </h2>
+
+            <h2 class="large">
+                Tutorio
+            </h2>
+        </div>
+  
+        <div class="span4">
+            <h2>
+                Tutorios
+            </h2>
+        </div>
+        <div class="span5">
+            <h2 style="font-family: 'Koulen', cursive;">
+                tomorrow
+            </h2>
+        </div>
+        <div class="span6">
+            <h2>
+                tomorrow
+            </h2>
+        </div>
+        <div class="span7">
+        </div>
+
+    </div>
+
+      </div>
+  
   </div>
-
-
-
   </script>
 </body>
 

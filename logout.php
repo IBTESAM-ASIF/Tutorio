@@ -2,5 +2,6 @@
 session_start();
 unset($_SESSION['$uname']);
 session_destroy();
-header('location:tutorlogin.php');
+// $_SESSION = [''];
+header('location:login.php');
 ?>

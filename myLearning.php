@@ -4,6 +4,9 @@ session_start();
 if (isset($_SESSION['uname'])) {
     $name = $_SESSION['uname'];
 }
+else{
+    header("Location: login.php");
+}
 $sql_query = "select t.*, s.description, lecture from teacher_course ts join teacher_student tc on ts.teacherEmail = tc.teacherEmail join subject s on ts.subID = s.subID join tutor t on ts.teacherEmail = t.email where tc.studentEmail = '" . $name . "'";
 $result = mysqli_query($con, $sql_query);
 ?>

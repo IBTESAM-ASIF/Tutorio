@@ -4,6 +4,9 @@ session_start();
 if (isset($_SESSION['uname'])) {
     $name = $_SESSION['uname'];
 }
+else{
+    header("Location: login.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

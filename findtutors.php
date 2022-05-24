@@ -5,10 +5,12 @@ session_start();
 if (isset($_SESSION['uname'])) {
   $name = $_SESSION['uname'];
 }
+else{
+  header("Location: login.php");
+}
 
 $sql = "select t.*, s.* from tutor t join teacher_course tc on t.email = tc.teacherEmail join subject s on tc.subID = s.subID";
 $result = $con->query($sql) or die($con->error);
-
 
 ?>
 
