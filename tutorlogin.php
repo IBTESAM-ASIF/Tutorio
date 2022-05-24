@@ -18,7 +18,7 @@ if(isset($_POST['but_submit'])){
         
         if($count > 0){
             $_SESSION['uname'] = $uname;
-            header('Location: /Project/Final_Design/tutorhome.php');
+            header('Location: tutorhome.php');
         }else{
             $flag = true;
         }

@@ -47,19 +47,17 @@
     width: 200px;
     text-align: center;
     font-size: 12vh;
-    color: rgb(193, 193, 218);
+    color: rgb(0, 0, 5);
     justify-content: center;
     transform:translateX(300px) translateY(180px);
     letter-spacing: 10px;
-  position:absolute;
-    
-    
+    position:absolute;
 }
 .span2 .medtext{
     font-weight: 100;
     text-shadow: 5px 5px 20px rgba(19, 133, 179, 0.5),
     -10px 10px 20px rgba(255, 255, 255, 0.5);
-  z-index:10;
+    z-index:10;
     
 }
 
@@ -187,7 +185,7 @@
 }
 body{
   height:100%;
-  background: turquoise;
+  background: #75E6DA;
 }
 .span3 h2{
   font-size:50px;

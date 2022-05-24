@@ -64,9 +64,9 @@ if(!isset($_SESSION['uname'])){
   <div class="container">
         
         <div class="span2">
-            <h2 class="medtext" style="color: black">
+            <a href="#" class="medtext" style="font-size: large">
                 Learn With US
-            </h2>
+      </a>
 
             <h2 class="large">
                 Tutorio
@@ -84,9 +84,9 @@ if(!isset($_SESSION['uname'])){
             </h2>
         </div>
         <div class="span6">
-            <h2>
+            <a href="#">
                 tomorrow
-            </h2>
+      </a>
         </div>
         <div class="span7">
         </div>

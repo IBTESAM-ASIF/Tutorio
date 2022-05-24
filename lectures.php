@@ -1,8 +1,12 @@
 <?php
 include 'connection.php';
 session_start();
+
 if (isset($_SESSION['uname'])) {
-    $name = $_SESSION['uname'];
+  $name = $_SESSION['uname'];
+}
+if(!isset($_SESSION['uname'])){
+  header("Location: login.php");
 }
 $sql_query = "select * from subject s join teacher_course tc on s.subID = tc.subID where tc.teacherEmail ='" . $name . "'";
 if(isset($_POST['course_del'])){

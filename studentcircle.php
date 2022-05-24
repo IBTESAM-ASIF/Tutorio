@@ -1,9 +1,12 @@
 <?php
-include 'connection.php';
+include ('connection.php');
 session_start();
 
 if (isset($_SESSION['uname'])) {
-    $name = $_SESSION['uname'];
+  $name = $_SESSION['uname'];
+}
+if(!isset($_SESSION['uname'])){
+  header("Location: login.php");
 }
 $query = "select * from tutor t join teacher_student ts on t.email = ts.teacherEmail join student s on ts.studentEmail = s.Email join subject sub on ts.subID = sub.subID where t.email='" .$name. "'";
 

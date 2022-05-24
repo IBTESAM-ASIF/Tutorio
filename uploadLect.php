@@ -2,8 +2,12 @@
 include './connection.php';
 include './generateSub.php';
 session_start();
+
 if (isset($_SESSION['uname'])) {
-    $name = $_SESSION['uname'];
+  $name = $_SESSION['uname'];
+}
+if(!isset($_SESSION['uname'])){
+  header("Location: login.php");
 }
 
 if(isset($_POST['submit'])){

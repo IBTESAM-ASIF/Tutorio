@@ -1,9 +1,12 @@
 <?php
-include 'connection.php';
+include ('connection.php');
 session_start();
 
 if (isset($_SESSION['uname'])) {
-    $name = $_SESSION['uname'];
+  $name = $_SESSION['uname'];
+}
+if(!isset($_SESSION['uname'])){
+  header("Location: login.php");
 }
 
 $sql_query = "select * from student where Email ='" . $name . "'";
@@ -73,7 +76,7 @@ $image = $row['photo'];
     <div class="student-profile py-4">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-md-auto">
                     <div class="card shadow-sm">
                         <div class="card-header bg-transparent text-center">
                             <img class="profile_img" src=<?php echo "./uploads/$image" ?> alt="pic">

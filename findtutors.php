@@ -46,6 +46,7 @@ $result = $con->query($sql) or die($con->error);
           echo '<li><a class="menu__item" href="./profile.php">' . $name . '</a></li>';
           echo '<li><a class="menu__item" href="./myLearning.php">My Learning</a></li>';
           echo '<li><a class="menu__item" href="./login.php"><?php session_destroy(); ?>Logout</a></li>';
+          echo '<li><a class="menu__item" href="http://localhost:3002?username=' .$name. '"><?php session_destroy(); ?>Chat</a></li>';
         }
         ?>
       </ul>
@@ -58,7 +59,6 @@ $result = $con->query($sql) or die($con->error);
       </th>
     </tr>
     <tr>
-      <th>Image</th>
       <th>Name</th>
       <th>Domain</th>
       <th>Subject</th>
@@ -74,10 +74,9 @@ $result = $con->query($sql) or die($con->error);
       $id = $rows['subID'];
       $email = $rows['email'];
       $subId = $rows['subID'];
-      $image = $rows['photo'];
+      // $image = $rows['photo'];
     ?>
       <tr>
-        <td style="padding: 0;"><img src=<?php echo "uploads/$image" ?> style="height: 60px; width: 100px"></td>
         <td><?php echo strtoupper($rows['first']) . " " . strtoupper($rows['last']); ?></td>
         <td><?php echo $rows['domain'] ?></td>s
         <td><?php echo strtoupper($rows['description']) ?></td>

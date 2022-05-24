@@ -1,11 +1,12 @@
 <?php 
-include 'connection.php';
+include ('connection.php');
 session_start();
+
 if (isset($_SESSION['uname'])) {
-    $name = $_SESSION['uname'];
+  $name = $_SESSION['uname'];
 }
-else{
-    header("Location: login.php");
+if(!isset($_SESSION['uname'])){
+  header("Location: login.php");
 }
 ?>
 <!DOCTYPE html>
@@ -18,6 +19,7 @@ else{
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/slide.css">
   <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
     <style>
         .container{

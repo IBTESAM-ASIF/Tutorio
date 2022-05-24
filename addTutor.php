@@ -11,7 +11,7 @@ if (isset($_SESSION['uname'])) {
 
       $query2 .= "INSERT INTO `student_course` (`studentEmail`, `subID`) VALUES ('$name', ".$id.");";
       if ($con->multi_query($query2) == true) {
-        header("Location: \Project\Final_Design\home.php");
+        header("Location: home.php");
     } else {
       header('location:error.php');
     }

@@ -1,13 +1,14 @@
 <?php
-include 'connection.php';
+include ('connection.php');
 session_start();
+
 if (isset($_SESSION['uname'])) {
-    $name = $_SESSION['uname'];
+  $name = $_SESSION['uname'];
 }
-else{
-    header("Location: login.php");
+if(!isset($_SESSION['uname'])){
+  header("Location: login.php");
 }
-$sql_query = "select t.*, s.description, lecture from teacher_course ts join teacher_student tc on ts.teacherEmail = tc.teacherEmail join subject s on ts.subID = s.subID join tutor t on ts.teacherEmail = t.email where tc.studentEmail = '" . $name . "'";
+$sql_query = "select t.*, s.description from teacher_course ts join teacher_student tc on ts.teacherEmail = tc.teacherEmail join subject s on ts.subID = s.subID join tutor t on ts.teacherEmail = t.email where tc.studentEmail = '" . $name . "'";
 $result = mysqli_query($con, $sql_query);
 ?>
 
@@ -56,6 +57,10 @@ $result = mysqli_query($con, $sql_query);
         <tr>
             <h2 style="text-align: center; padding:5px">My Courses</h2>
         </tr>
+        <?php
+        if (mysqli_num_rows($result) > 0) {
+    
+        ?>
         <t>
             <th>Course Name</th>
             <th>Taught By:</th>
@@ -63,13 +68,16 @@ $result = mysqli_query($con, $sql_query);
 
         </t>
         <?php
+        }
+        ?>
+        <?php
         $result = mysqli_query($con, $sql_query);
         if (mysqli_num_rows($result) > 0) {
             while ($rows = mysqli_fetch_assoc($result)) {
         ?>
         <tr>
             <td><?php echo $rows['description']; ?></td>
-            <td><?php echo $rows['first'] . " " . $rows['last']; ?></td>
+            <td><?php echo $rows['last']; ?></td>
             <td><video width="500px" height="280px" controls="controls" />
                 <source src="./<?php echo $rows['lecture']; ?>.mp4" type="video/mp4">
                 </video>
@@ -78,7 +86,9 @@ $result = mysqli_query($con, $sql_query);
         <?php
             }
         } else {
-            echo "You have no lectures currently";
+        ?>
+            <h2>No Courses Found</h2>
+        <?php
         }
         ?>
     </table>
