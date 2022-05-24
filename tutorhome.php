@@ -22,6 +22,7 @@ if(!isset($_SESSION['uname'])){
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/slide.css">
   <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="newhome.css">
     <!-- <link rel="stylesheet" href="home.css"> -->
     <title>Tutorio</title>
 </head>
@@ -52,7 +53,36 @@ if(!isset($_SESSION['uname'])){
         </div>
     </div>
 
+    <div class="container">
+        
+        <div class="span2">
+            <a href="/Tutorio/mylectures.php" style="font-size: large">
+                My Lecutres
+      </a>
 
+            <h2 class="large">
+                Tutorio Teacher
+            </h2>
+        </div>
+  
+        <div class="span5">
+            <a href="/Tutorio/tutorProfile.php">
+                Profile
+            </a>
+        </div>
+        <div class="span6">
+            <a href="/Tutorio/studentcircle.php">
+            Student Circle
+      </a>
+        </div>
+        <div class="span7">
+        </div>
+
+    </div>
+
+      </div>
+  
+  </div>
 
     </script>
 </body>

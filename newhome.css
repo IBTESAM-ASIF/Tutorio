@@ -47,7 +47,7 @@
     width: 200px;
     text-align: center;
     font-size: 12vh;
-    color: rgb(0, 0, 5);
+    color: #05445E;
     justify-content: center;
     transform:translateX(300px) translateY(180px);
     letter-spacing: 10px;
@@ -72,10 +72,9 @@
   position:absolute;
   bottom:10px;
   right:20px;
-  
-    
-    height: 120px;
-    justify-content: center;
+
+  height: 120px;
+  justify-content: center;
 
 
 }
@@ -93,7 +92,7 @@
     font-size: 80px;
     font-weight: 10;
     padding-bottom: 10px;
-    color: rgb(0, 0, 0);
+    color: #05445E;
     text-shadow: 5px 5px 20px rgba(255, 255, 5, 0.5),
     -10px 10px 10px rgba(255, 255, 255, 0.5);
   
@@ -101,7 +100,7 @@
 }
 
 .span3 h2{
-    color: rgb(86, 86, 206);
+    color: rgb(26, 64, 0);
     
 }
 
@@ -130,7 +129,7 @@
 }
 
 .hero{
-    color: rgb(49, 69, 185);
+    color: rgb(119, 185, 49);
     font-size: 9vh;
     font-weight: 100;
     letter-spacing: 10px;

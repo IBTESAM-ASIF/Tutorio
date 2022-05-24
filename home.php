@@ -49,11 +49,10 @@ if(!isset($_SESSION['uname'])){
         } else {
           echo '<li><a class="menu__item" href="./profile.php">' . $name . '</a></li>';
           echo '<li><a class="menu__item" href="./myLearning.php">My Learning</a></li>';
+          echo '<li><a class="menu__item" href="http://localhost:3003?username=' .$name. '"><?php session_destroy(); ?>Chat</a></li>';
 
           echo '<li><a class="menu__item" href="./logout.php"><?php session_destroy(); ?>Logout</a></li>';
-          echo '<li><a class="menu__item" href="http://localhost:3002?username=' .$name. '"><?php session_destroy(); ?>Chat</a></li>';
-
-        }
+          }
         ?>
       </ul>
     </div>
@@ -64,20 +63,16 @@ if(!isset($_SESSION['uname'])){
   <div class="container">
         
         <div class="span2">
-            <a href="#" class="medtext" style="font-size: large">
-                Learn With US
+            <a href="http://localhost:3003?username=' .$name. '" style="font-size: large">
+                CHAT
       </a>
 
             <h2 class="large">
-                Tutorio
+                Tutorio Student
             </h2>
         </div>
   
-        <div class="span4">
-            <h2>
-                Tutorios
-            </h2>
-        </div>
+      
         <div class="span5">
             <h2 style="font-family: 'Koulen', cursive;">
                 tomorrow

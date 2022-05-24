@@ -42,7 +42,7 @@ $query = "select * from tutor t join teacher_student ts on t.email = ts.teacherE
                 <span></span>
             </label>
             <ul class="menu__box">
-            <li><a class="menu__item" href="#">Home</a></li>
+            <li><a class="menu__item" href="/Tutorio/tutorhome.php">Home</a></li>
                 <li><a class="menu__item" href="./mylectures.php">My Lectures</a></li>
                 <li><a class="menu__item" href="./studentcircle.php">Student Circle</a></li>
 
@@ -62,8 +62,12 @@ $query = "select * from tutor t join teacher_student ts on t.email = ts.teacherE
     <table style="margin-left: 45%;
             text-align: center;">
         <tr>
-            <h2 >Students</h2>
+            <h2 >Students Circle</h2>
         </tr>
+        <?php
+        $result = mysqli_query($con, $query);
+        if (mysqli_num_rows($result) > 0) {
+        ?>
         <t>
             <th>Student Name</th>
             <th>Student Phone</th>
@@ -71,6 +75,9 @@ $query = "select * from tutor t join teacher_student ts on t.email = ts.teacherE
             <th>Country</th>
             <th>Course Name</th>
         </t>
+        <?php
+        }
+        ?>
         <?php
         $result = mysqli_query($con, $query);
         if (mysqli_num_rows($result) > 0) {
