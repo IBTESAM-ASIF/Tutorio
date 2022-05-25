@@ -1,17 +1,15 @@
 body{
-    background-color: #189AB4;
+    background-color: #000000;
     margin: 0;
     padding: 0;
-    font-family: 'Merriweather', serif;
 }
 
 .find {
     margin: 50px auto;
     padding: 15px;
-    background-color: #189AB4;
+    background-color: #000000;
 }
 
 .find tr, .find th, .find td {
-    border: 2px solid black;
     padding: 20px;
 }
