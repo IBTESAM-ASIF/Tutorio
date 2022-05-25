@@ -65,20 +65,16 @@ if (isset($_POST['but_submit'])) {
             } ?>
 
             <div class="form__field">
-                <input type="hidden" id="but_submit" value="Sign In" name="but_submit">
-            <button name="submit" type="submit" style="background-color: #05445E; color: var(--loginSubmitColor); font-weight: 700; text-transform: uppercase;border-radius: var(--loginBorderRadus);padding: 1rem;inline-size: 100%;">Login</button>
-
+                <input type="submit" id="but_submit" value="Sign In" name="but_submit">
             </div>
         </form>
-        <br>
         <form action="./forgot.php" method="post">
             <input type="hidden" name="uname" value="<?php echo $name ?>">
-            <button name="submit" type="submit" style="background-color: #05445E; color: var(--loginSubmitColor); font-weight: 700; text-transform: uppercase;border-radius: var(--loginBorderRadus);padding: 1rem;inline-size: 100%;">forgot password?</button>
+            <input name="submit" type="submit" value="forgot password?">
         </form>
         <br>
-
         <a href="./tutorlogin.php"><button
-                style="background-color: #05445E; color: var(--loginSubmitColor); font-weight: 700; text-transform: uppercase;border-radius: var(--loginBorderRadus);padding: 1rem;inline-size: 100%;">Sign
+                style="background-color: var(--loginSubmitBackgroundColor); color: var(--loginSubmitColor); font-weight: 700; text-transform: uppercase;border-radius: var(--loginBorderRadus);padding: 1rem;inline-size: 100%;">Sign
                 in as tutor</button></a>
         <p class="text--center">Not a Student? <a href="signup.php">Sign up now</a> <svg class="icon">
                 <use xlink:href="#icon-arrow-right"></use>

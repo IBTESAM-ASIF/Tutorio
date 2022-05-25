@@ -104,9 +104,7 @@ if (isset($_POST['submit'])) {
 
 
             <div class="form__field">
-                <input type="hidden" name="submit" value="Sign UP">
-                <button style="background-color: #05445E; color: var(--loginSubmitColor); font-weight: 700; text-transform: uppercase;border-radius: var(--loginBorderRadus);padding: 1rem;inline-size: 100%;">Sign up</button>
-
+                <input type="submit" name="submit" value="Sign UP">
             </div>
 
         </form>

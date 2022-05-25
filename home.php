@@ -20,7 +20,7 @@ if (!isset($_SESSION['uname'])) {
   <link rel="stylesheet" href="css/nav_style.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/slide.css">
-  <!-- <link rel="stylesheet" href="css/home.css"> -->
+  <link rel="stylesheet" href="css/home.css">
   <link rel="stylesheet" href="newhome.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
