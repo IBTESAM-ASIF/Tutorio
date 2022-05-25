@@ -75,6 +75,7 @@ if(isset($_POST['submit'])){
                 <?php
                 if (isset($_SESSION['uname'])) {
                     echo '<li><a class="menu__item" href="./tutorProfile.php">' . $name . '</a></li>';
+                    echo '<li><a class="menu__item" href="http://localhost:3003?username=' . $name . '"><?php session_destroy(); ?>Chat</a></li>';
                     echo '<li><a class="menu__item" href="./logout.php">Logout</a></li>';
                 } else {
                     echo '<li><a class="menu__item" href="./tutorlogin.php">Sign IN as tutor</a></li>';

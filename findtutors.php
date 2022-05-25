@@ -45,8 +45,8 @@ $result = $con->query($sql) or die($con->error);
         } else {
           echo '<li><a class="menu__item" href="./profile.php">' . $name . '</a></li>';
           echo '<li><a class="menu__item" href="./myLearning.php">My Learning</a></li>';
+          echo '<li><a class="menu__item" href="http://localhost:3003?username=' .$name. '"><?php session_destroy(); ?>Chat</a></li>';
           echo '<li><a class="menu__item" href="./login.php"><?php session_destroy(); ?>Logout</a></li>';
-          echo '<li><a class="menu__item" href="http://localhost:3002?username=' .$name. '"><?php session_destroy(); ?>Chat</a></li>';
         }
         ?>
       </ul>

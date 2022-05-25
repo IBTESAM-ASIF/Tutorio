@@ -50,7 +50,6 @@ if (!isset($_SESSION['uname'])) {
           echo '<li><a class="menu__item" href="./profile.php">' . $name . '</a></li>';
           echo '<li><a class="menu__item" href="./myLearning.php">My Learning</a></li>';
           echo '<li><a class="menu__item" href="http://localhost:3003?username=' . $name . '"><?php session_destroy(); ?>Chat</a></li>';
-
           echo '<li><a class="menu__item" href="./logout.php"><?php session_destroy(); ?>Logout</a></li>';
         }
         ?>
