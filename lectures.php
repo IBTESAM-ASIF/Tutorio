@@ -30,8 +30,6 @@ if(isset($_POST['course_del'])){
     <link rel="stylesheet" href="css/slide.css">
     <link rel="stylesheet" href="css/home.css">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
     <title>Document</title>
 </head>
 
@@ -78,7 +76,7 @@ if(isset($_POST['course_del'])){
                     <td><?php echo $rows['description']; ?></td>
                     <td><?php echo $rows['domain'] ?></td>
                     <form action="./lectures.php" method="post">
-                        <td><button type="submit" class="btn btn-danger" value=<?php echo $id?> name="course_del">Delete This Course</button></td>
+                        <td><button type="submit" value=<?php echo $id?> name="course_del">Delete This Course</button></td>
                     </form>
                 </tr>
                 

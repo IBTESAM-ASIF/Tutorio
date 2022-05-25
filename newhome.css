@@ -47,7 +47,7 @@
     width: 200px;
     text-align: center;
     font-size: 12vh;
-    /* color: #05445E; */
+    color: #05445E;
     justify-content: center;
     transform:translateX(300px) translateY(180px);
     letter-spacing: 10px;
@@ -63,7 +63,7 @@
 
 .span2 .large{
     font-size: 30vh;
-    /* font-weight: 200; */
+    font-weight: 200;
     text-shadow: 10px 10px 20px rgba(10, 103, 149, 0.5),
     -20px 20px 30px rgba(7, 104, 128, 0.5);
 }

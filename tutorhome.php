@@ -66,13 +66,13 @@ if(!isset($_SESSION['uname'])){
         </div>
   
         <div class="span5">
-            <a href="/Tutorio/tutorProfile.php" style="font-size: 100px">
+            <a href="/Tutorio/tutorProfile.php">
                 Profile
             </a>
         </div>
         <div class="span6">
-            <a href="/Tutorio/studentcircle.php" style="font-size: 80px">
-            Students
+            <a href="/Tutorio/studentcircle.php">
+            Student Circle
       </a>
         </div>
         <div class="span7">
