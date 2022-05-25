@@ -36,7 +36,7 @@ if (!isset($_SESSION['uname'])) {
   <div class="nav">
     <div class="hamburger-menu">
       <input id="menu__toggle" type="checkbox" />
-      <label class="menu__btn" for="menu__toggle">
+      <label class="menu__btn" for="menu__toggle" style="color: black">
         <span></span>
       </label>
       <ul class="menu__box">

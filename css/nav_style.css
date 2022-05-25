@@ -68,8 +68,8 @@
     padding: 80px 0;
   
     list-style: none;
-  
-    background-color: #325624;
+    color: black;
+    background-color: #05445E;
     /* box-shadow: 1px 0px 6px rgba(0, 0, 0, .2); */
   
     transition-duration: .25s;
