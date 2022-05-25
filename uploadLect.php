@@ -51,6 +51,8 @@ if(isset($_POST['submit'])){
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="page.css">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <style>
         .section {
             margin-top: 15%;
@@ -103,7 +105,7 @@ if(isset($_POST['submit'])){
             </div>
             <br>
             <br>
-            <input type="submit" name="submit" value="Submit">
+            <input type="submit" name="submit" value="Submit" style="background-color: green; color: white; border-radius: 5px">
         </form>
     </div>
 </body>
