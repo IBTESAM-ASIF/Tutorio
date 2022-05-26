@@ -52,7 +52,7 @@ $image = $row['photo'];
 
         }
     </style>
-    <title>Tutorio | Login</title>
+    <title>Tutorio | Profile</title>
 </head>
 
 <body id="cover">
