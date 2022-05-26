@@ -1,4 +1,16 @@
 <?php
+
+//these both are same but i have used second one because first one was 
+//not working in my localhost
+// header("HTTP/1.1 404 Not Found");
+header($_SERVER["SERVER_PROTOCOL"]." 404 Not Found");
+
+
+
+
+// these will be used to prevent header injection attacks.
+header("Cache-Control: no-cache");
+header("Pragma: no-cache");
 include('connection.php');
 session_start();
 

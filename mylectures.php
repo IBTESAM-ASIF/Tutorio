@@ -25,7 +25,7 @@ if(!isset($_SESSION['uname'])){
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
     <style>
         body{
-            background-image: url("/opt/lampp/htdocs/Tutorio/images.jpeg");
+            background-color: #189AB4;
         }
     </style>
     <title>Tutorio | Signup</title>

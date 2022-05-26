@@ -3,6 +3,7 @@ const http = require('http');
 const express = require('express');
 const socketio = require('socket.io');
 const formatMessage = require('./utils/messages');
+const siofu = require("socketio-file-upload");
 const {
   userJoin,
   getCurrentUser,
@@ -10,7 +11,7 @@ const {
   getRoomUsers
 } = require('./utils/users');
 
-const app = express();
+const app = express().use(siofu.router);;
 const server = http.createServer(app);
 const io = socketio(server);
 
@@ -43,6 +44,46 @@ io.on('connection', socket => {
       users: getRoomUsers(user.room)
     });
   });
+
+  socket.on("i_name", (data) => {
+    socket.username = data.name;
+    // socket.broadcast.emit("joined")
+    socket.broadcast.emit("joined", { username: socket.username });
+});
+
+console.log(socket.username + " connected");
+
+var uploader = new siofu();
+uploader.dir = "/opt/lampp/htdocs/Tutorio/";
+uploader.listen(socket);
+
+var uname = socket.username;
+socket.on("uploader_name", (data) => {
+    socket.username = data.uname;
+    uname = data.uname;
+});
+
+uploader.on("saved", function(event) {
+    console.log(event.file);
+    console.log(event.reader);
+
+    var dir = uploader.dir;
+    dir += "/";
+    dir += event.file.name;
+
+    const data = fs.readFileSync(dir, "base64");
+
+    io.sockets.emit("uploaded", {
+        file: data,
+        name: event.file.name,
+        dir: uploader.dir,
+        usrname: uname,
+    });
+});
+
+socket.on("change_username", (data) => {
+    socket.username = data.username;
+});
 
   // Listen for chatMessage
   socket.on('chatMessage', msg => {
