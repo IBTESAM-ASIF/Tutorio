@@ -49,6 +49,61 @@ chatForm.addEventListener('submit', (e) => {
   e.target.elements.msg.focus();
 });
 
+//file upload
+var uploader = new SocketIOFileUpload(socket);
+    uploader.listenOnInput(document.getElementById("upload"));
+    uploader.chunkSize = 1024 * 100;
+    uploader.listenOnSubmit(
+        document.getElementById("send_message"),
+        document.getElementById("upload")
+    );
+
+    uploader.addEventListener("progress", function(event) {
+        socket.emit("uploader_name", { uname: i_username });
+        var percent = (event.bytesLoaded / event.file.size) * 100;
+        console.log("File is", percent.toFixed(2), "percent loaded");
+    });
+
+    var tempfile;
+
+    uploader.addEventListener("complete", function(event) {
+        console.log(event.success);
+        console.log(event.file);
+        var objDiv = document.getElementById("chatroom");
+        objDiv.scrollTop = objDiv.scrollHeight;
+    });
+
+    socket.on("uploaded", (data) => {
+        alert("File successfully uploaded by " + data.usrname);
+        const byteCharacters = window.atob(data.file);
+        const byteNumbers = new Array(byteCharacters.length);
+        for (let i = 0; i < byteCharacters.length; i++) {
+            byteNumbers[i] = byteCharacters.charCodeAt(i);
+        }
+        const byteArray = new Uint8Array(byteNumbers);
+        const blob = new Blob([byteArray], { type: "application/octet-stream" });
+
+        const objectURL = URL.createObjectURL(blob);
+        feedback.html("");
+        message.val("");
+        chatroom.append(
+            "<p class='message'>" +
+            data.usrname +
+            ": " +
+            "<a id= 'FileObject' href='" +
+            objectURL +
+            "' download='" +
+            data.name +
+            "'>" +
+            data.name +
+            "</a>" +
+            "</p>"
+        );
+        console.log(data.file);
+        var objDiv = document.getElementById("chatroom");
+        objDiv.scrollTop = objDiv.scrollHeight;
+    });
+
 // Output message to DOM
 function outputMessage(message) {
   const div = document.createElement('div');

@@ -5,7 +5,7 @@
   /* config.css */
   
   :root {
-    --baseColor: #606468;
+    /* --baseColor: #007af4; */
   }
   
   /* helpers/align.css */
@@ -58,7 +58,7 @@
   
   :root {
     --htmlFontSize: 100%;
-    --bodyBackgroundColor: #2c3338;
+    /* --bodyBackgroundColor: #2c3338; */
     --bodyColor: var(--baseColor);
     --bodyFontFamily: "Open Sans";
     --bodyFontFamilyFallback: sans-serif;
@@ -77,8 +77,8 @@
   }
   
   body {
-    background-color: var(--bodyBackgroundColor);
-    color: var(--bodyColor);
+    background-color: #75E6DA;
+    color: #606468;
     font-family: var(--bodyFontFamily), var(--bodyFontFamilyFallback);
     font-size: var(--bodyFontSize);
     font-weight: var(--bodyFontWeight);
@@ -113,7 +113,7 @@
   input {
     background-image: none;
     border: 0;
-    background-color: rgb(59, 65, 72);
+    /* background-color: rgb(59, 65, 72); */
     color: inherit;
     font: inherit;
     margin: 0;
@@ -153,14 +153,14 @@
     --loginBorderRadus: 0.25rem;
     --loginColor: #eee;
   
-    --loginInputBackgroundColor: #3b4148;
-    --loginInputHoverBackgroundColor: #434a52;
+    --loginInputBackgroundColor: #D4F1F4;
+    --loginInputHoverBackgroundColor: #75E6DA;
   
     --loginLabelBackgroundColor: #363b41;
   
-    --loginSubmitBackgroundColor: #325624;
+    --loginSubmitBackgroundColor: #05445E;
     --loginSubmitColor: #eee;
-    --loginSubmitHoverBackgroundColor: #05445E;
+    --loginSubmitHoverBackgroundColor: #75E6DA;
   }
   
   .login {
@@ -186,7 +186,7 @@
   
   .login input[type="password"],
   .login input[type="text"] {
-    background-color: var(--loginInputBackgroundColor);
+    background-color: #D4F1F4;
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
   }
@@ -195,11 +195,11 @@
   .login input[type="password"]:hover,
   .login input[type="text"]:focus,
   .login input[type="text"]:hover {
-    background-color: var(--loginInputHoverBackgroundColor);
+    background-color: #75E6DA;
   }
   
   .login input[type="submit"] {
-    background-color: var(--loginSubmitBackgroundColor);
+    background-color: #05445E;
     color: var(--loginSubmitColor);
     font-weight: 700;
     text-transform: uppercase;

@@ -33,8 +33,13 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/nav_style.css">
     <link rel="stylesheet" href="css/footer.css">
+    <style>
+        body {
+            background-color: #189AB4;
+        }
+    </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" /> -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
     <title>Tutorio | Signup</title>
 </head>
@@ -85,7 +90,7 @@ if (isset($_POST['submit'])) {
 
 
             <div class="form__field">
-                <input type="submit" name="submit" value="Sign UP">
+                <input type="submit" name="submit" value="Sign UP" style="background-color: #05445E;">
             </div>
 
         </form>

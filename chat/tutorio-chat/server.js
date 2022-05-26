@@ -24,8 +24,9 @@ const botName = 'Tutorio Chat';
 io.on('connection', socket => {
   socket.on('joinRoom', ({ username, room }) => {
     const user = userJoin(socket.id, username, room);
-
+    
     socket.join(user.room);
+    console.log(username)
 
     // Welcome current user
     socket.emit('message', formatMessage(botName, 'Tutorio Chat rooms!'));
@@ -37,7 +38,7 @@ io.on('connection', socket => {
         'message',
         formatMessage(botName, `${user.username} has joined the chat`)
       );
-
+        
     // Send users and room info
     io.to(user.room).emit('roomUsers', {
       room: user.room,

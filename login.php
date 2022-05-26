@@ -32,11 +32,12 @@ if (isset($_POST['but_submit'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/login.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/nav_style.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/login.css">
     <title>Tutorio | Login</title>
 </head>
 
@@ -65,17 +66,16 @@ if (isset($_POST['but_submit'])) {
             } ?>
 
             <div class="form__field">
-                <input type="submit" id="but_submit" value="Sign In" name="but_submit">
+                <input type="hidden" id="but_submit" value="Sign In" name="but_submit">
+                <button type="submit" class="btn btn-primary">Sign in</button>
             </div>
         </form>
-        <form action="./forgot.php" method="post">
+        <!-- <form action="./forgot.php" method="post">
             <input type="hidden" name="uname" value="<?php echo $name ?>">
             <input name="submit" type="submit" value="forgot password?">
-        </form>
+        </form> -->
         <br>
-        <a href="./tutorlogin.php"><button
-                style="background-color: var(--loginSubmitBackgroundColor); color: var(--loginSubmitColor); font-weight: 700; text-transform: uppercase;border-radius: var(--loginBorderRadus);padding: 1rem;inline-size: 100%;">Sign
-                in as tutor</button></a>
+        <a href="./tutorlogin.php"><button type="submit" class="btn btn-success">Sign in as tutor</button></a>
         <p class="text--center">Not a Student? <a href="signup.php">Sign up now</a> <svg class="icon">
                 <use xlink:href="#icon-arrow-right"></use>
             </svg></p>
