@@ -14,7 +14,7 @@ if(isset($_POST['course_del'])){
     $query = "DELETE FROM `teacher_course` WHERE `teacher_course`.`teacherEmail` = '$name' AND `teacher_course`.`subID` = $id;";
     // echo $query;
     $result = mysqli_query($con, $query);
-    header("Location: \Project\Final_Design\lectures.php");
+    header("Location: \Tutorio\lectures.php");
 }
 ?>
 
